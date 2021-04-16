@@ -1,0 +1,43 @@
+<div class = "container">
+  <div class="userdetail">
+    <h1>ユーザー情報</h1>
+    <div>
+      <div class="list-group-item">
+        <h3>学年</h3>
+        <div class="userfont"><%= current_user.grade %></div>
+      </div>
+      <div class="list-group-item">
+        <h3>学部</h3>
+        <div class="userfont"><%= current_user.expert %></div>
+      </div>
+      <div class="list-group-item">
+        <h3>ニックネーム</h3>
+        <div class="userfont"><%= current_user.nickname %></div>
+      </div>
+    </div>
+    <%= link_to "ユーザー情報を変更する" , "/users/#{current_user.id}/edit" , class: "btn btn-primary btn-lg updatebot" %>
+  </div>
+
+  <div class="usershow">
+    <h1>ユーザが投稿した質問の一覧</h1>
+
+      <div class="mokushow">
+        <h2>目的別投稿一覧</h2>
+        <% @mainposts.each do |mainpost| %>
+          <div class="list-group-item ainshow">
+            <%= link_to "#{mainpost.title}", "/mainposts/#{mainpost.code_id}/#{mainpost.id}" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="mokushow">
+        <h2>学科別投稿一覧</h2>
+        <% @posts.each do |post| %>
+          <div class="list-group-item ainshow">
+            <%= link_to "#{post.title}", "/posts/#{post.univ_id}/#{post.id}" %>
+          </div>
+        <% end %>
+      </div>
+
+  </div>
+</div>

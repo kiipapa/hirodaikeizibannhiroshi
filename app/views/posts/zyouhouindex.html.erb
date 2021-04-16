@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>情報科学部に関する質問一覧</h1>
+    <% @posts.each do |post| %>
+    <div class= "list-group-item" >
+      <div class = "postfont">
+        <%= current_user.grade %>
+        <%= current_user.expert %>
+        <%= current_user.nickname %>
+      </div>
+      <div class = "postconfont">
+        <%= link_to "#{post.title}", "/posts/#{post.univ_id}/#{post.id}" %>
+      </div>
+    </div>
+    <% end %>
+
+    <%= link_to "学部一覧に戻る", "/unilist", class: "btn btn-success btn-lg postbutton" %>
+    
+</div>

@@ -1,0 +1,21 @@
+<div class = "container">
+  <h1>法学部に関する新規投稿</h1>
+
+    <div>
+    <div class = "col-md-6 col-md-offset-3" >
+      <%= form_with(url: "/posts/hounew", model: @post, local: true) do |f| %>
+
+        <%= f.label :質問（50文字以内、空白なし）, class: "form-label" %>
+        <%= f.text_field :title , class: "form-control" %>
+
+        <%= f.label :具体的な質問内容（空白あり）, class: "form-label" %>
+        <%= f.text_area :content , size: "20x15", class: "form-control" %>
+
+        <%= f.submit "質問を投稿する" , class: "form-control postsub" %>
+      <% end %>
+    </div>
+    </div>
+
+
+  <%= link_to "学部一覧", "/unilist" , class: "btn btn-success postbutton" %>
+</div>

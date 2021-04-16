@@ -1,0 +1,83 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.toppage {
+  h1 {
+    margin-bottom: 50px;
+    font-size: 50px;
+    color: red;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.topbotton {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 60px;
+}
+
+.aboutpage {
+  h1 {
+    font-size: 45px;
+    margin-bottom: 60px;
+    color: red;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    color: blue;
+    background-color: coral;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+
+.logintop {
+  h1 {
+    margin-bottom: 60px;
+    color: red;
+  }
+  p {
+    margin-top: 50px;
+    margin-bottom: 60px;
+    font-size: 16px;
+    span {
+      color: red;
+      font-weight: bold;
+    }
+  }
+}
+
+.unilist {
+  h1 {
+    margin-bottom: 40px;
+    color: red;
+  }
+}
+
+.unilistdetail {
+  margin-bottom: 30px;
+}
+
+.mokulist {
+  h1 {
+    margin-bottom: 40px;
+    color: red;
+  }
+}
+
+.mokulistdetail {
+  margin-bottom: 30px;
+}
+
+.deabout h3 {
+  color: red;
+  font-size: 45px;
+}

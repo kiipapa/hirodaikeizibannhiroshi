@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="mainshow">
+  <h1>質問内容と回答</h1>
+
+  <h2>質問内容</h2>
+
+  <div class= "list-group-item" >
+    <div class = "postfont">
+      <%= current_user.grade %>
+      <%= current_user.expert %>
+      <%= current_user.nickname %>
+    </div>
+    <div class = "postconfont">
+      <%= @post.title %>
+    </div>
+    <div class = "postconprofont">
+      <%= @post.content %>
+    </div>
+  </div>
+
+  <h2>回答内容</h2>
+
+  <div>
+      <% @answers.each do |answer| %>
+        <div class= "list-group-item" >
+          <div class = "postfont">
+            <%= current_user.grade %>
+            <%= current_user.expert %>
+            <%= current_user.nickname %>
+          </div>
+          <div class = "postconfont">
+          <%= answer.content %>
+          </div>
+        </div>
+      <% end %>
+  </div>
+
+  <%= link_to "回答を投稿する", "/answers/#{current_user.id}/#{@post.id}/#{@post.univ_id}", class: "btn btn-danger btn-lg postbutton" %>
+  <%= link_to "学部一覧に戻る", "/unilist", class: "btn btn-success btn-lg postbutton" %>
+  </div>
+</div>

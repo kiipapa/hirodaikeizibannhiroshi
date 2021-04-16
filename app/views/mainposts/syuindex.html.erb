@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>学校生活に関する質問一覧</h1>
+    <% @mainposts.each do |mainpost| %>
+    <div class= "list-group-item" >
+      <div class="mainpostfont" >
+        <%= current_user.grade %>
+        <%= current_user.expert %>
+        <%= current_user.nickname %>
+      </div>
+      <div class="mainpostconfont" >
+        <%= link_to "#{mainpost.title}", "/mainposts/#{mainpost.code_id}/#{mainpost.id}" %>
+      </div>
+    </div>
+    <% end %>
+
+    <%= link_to "学部一覧に戻る", "/mokulist", class: "btn btn-success btn-lg mainpostbutton" %>
+    
+</div>

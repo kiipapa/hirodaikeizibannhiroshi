@@ -1,0 +1,62 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.form-label {
+  margin-top: 30px;
+}
+
+.subbo {
+  margin-top: 50px;
+  margin-bottom: 200px;
+}
+
+.formpost {
+  h1 {
+    margin-bottom: 40px;
+    font-size: 40px;
+  }
+  p {
+    font-size: 20px;
+    margin-bottom: 10px;
+    span {
+      color: red;
+      font-weight: bold;
+    }
+  }
+}
+
+.usershow {
+  margin-bottom: 100px;
+}
+
+.usershow h1 {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  background-color: chocolate;
+  color: white;
+}
+
+.userdetail h1 {
+  color: white;
+  background-color: chocolate;
+}
+
+.mokushow {
+  color: red;
+}
+
+.ainshow {
+  font-size: 20px;
+}
+
+.userfont {
+  font-size: 40px;
+  color: red;
+}
+
+.updatebot {
+  margin-top: 30px;
+}
+

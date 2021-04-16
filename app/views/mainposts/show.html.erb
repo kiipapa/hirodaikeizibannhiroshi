@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="mainshow">
+  <h1>質問内容と回答</h1>
+
+  <h2>質問内容</h2>
+
+  <div class= "list-group-item" >
+    <div class = "mainpostfont">
+      <%= current_user.grade %>
+      <%= current_user.expert %>
+      <%= current_user.nickname %>
+    </div>
+    <div class = "mainpostconfont">
+      <%= @mainpost.title %>
+    </div>
+    <div class = "mainpostprofont">
+      <%= @mainpost.content %>
+    </div>
+  </div>
+
+  <h2>回答</h2>
+
+  <div>
+    <div>
+      <% @mainanswers.each do |mainanswer| %>
+        <div class= "list-group-item" >
+          <div class = "mainpostfont">
+            <%= current_user.grade %>
+            <%= current_user.expert %>
+            <%= current_user.nickname %>
+          </div>
+          <div class = "mainpostconfont">
+          <%= mainanswer.content %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to "回答を投稿する", "/mainanswers/#{current_user.id}/#{@mainpost.id}/#{@mainpost.code_id}", class: "btn btn-danger btn-lg mainpostbutton" %>
+  <%= link_to "目的別投稿一覧に戻る", "/mokulist", class: "btn btn-success btn-lg mainpostbutton" %>
+
+  </div>
+</div>

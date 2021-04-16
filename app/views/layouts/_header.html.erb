@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <h3>広大掲示板hiroshi</h3>
+
+      <% if logged_in? %>
+        <ul>
+          <%= link_to "ログイントップ", "/logintop", class: "navbar-brand" %>
+          <%= link_to "このアプリについて", "/about", class: "navbar-brand" %>
+          <%= link_to "目的別投稿一覧", "/mokulist", class: "navbar-brand" %>
+          <%= link_to "学部一覧", "/unilist", class: "navbar-brand" %>
+          <%= link_to "ユーザー情報", "/users/#{current_user.id}", class: "navbar-brand" %>
+          <%= link_to "ログアウト", "/logout", method: :delete, class: "navbar-brand" %>
+        </ul>
+      <% else %>
+        <ul>
+          <%= link_to "トップページ", "/", class: "navbar-brand" %>
+          <%= link_to "このアプリについて", "/about", class: "navbar-brand" %>
+          <%= link_to "ログイン", "/login", class: "navbar-brand" %>
+          <%= link_to "新規登録", "/users/new", class: "navbar-brand" %>
+        </ul>
+      <% end %>
+
+    </div>
+  </nav>
+</body>
