@@ -8,8 +8,8 @@
         <ul>
           <%= link_to "ログイントップ", "/logintop", class: "navbar-brand" %>
           <%= link_to "このアプリについて", "/about", class: "navbar-brand" %>
-          <%= link_to "目的別投稿一覧", "/mokulist", class: "navbar-brand" %>
-          <%= link_to "学部一覧", "/unilist", class: "navbar-brand" %>
+          <%= link_to "学校生活・就活編", "/mokulist", class: "navbar-brand" %>
+          <%= link_to "学部編", "/unilist", class: "navbar-brand" %>
           <%= link_to "ユーザー情報", "/users/#{current_user.id}", class: "navbar-brand" %>
           <%= link_to "ログアウト", "/logout", method: :delete, class: "navbar-brand" %>
         </ul>

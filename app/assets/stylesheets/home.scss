@@ -55,15 +55,32 @@
   }
 }
 
+.logintoph2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: blue;
+  font-weight: bold;
+}
+
+.owabi h3{
+  color: orangered;
+}
+
 .unilist {
   h1 {
     margin-bottom: 40px;
     color: red;
   }
+  span {
+    color: blue;
+    font-size: 20px;
+  }
 }
 
 .unilistdetail {
   margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .mokulist {
@@ -71,13 +88,25 @@
     margin-bottom: 40px;
     color: red;
   }
+  span {
+    color: blue;
+    font-size: 20px;
+  }
 }
 
 .mokulistdetail {
   margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .deabout h3 {
   color: red;
   font-size: 45px;
 }
+
+.desabout {
+  font-weight: bold;
+  font-size: 20px;
+}
+

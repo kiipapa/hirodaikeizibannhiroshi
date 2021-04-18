@@ -3,14 +3,25 @@
   <div class = "row logintop">
   <h1>広大掲示板hiroshiへようこそ！</h1>
 
+  <h2 class="logintoph2">気軽に質問を！そして、みんなでいい掲示板を！</h2>
+  <p>それが私の願いです</p>
+
   <div>
-    <h2><%= link_to "目的別投稿部屋", "/mokulist", class: "btn btn-success btn-lg" %></h2>
-    <p>この部屋は、学部関係なく、目的別に投稿部屋を作成しています。<span>学校生活、サークル部活、就活</span>の3グループに分けています。</p>
+    <h2><%= link_to "学校生活・就活編", "/mokulist", class: "btn btn-success btn-lg" %></h2>
+    <p>この部屋では<span>学校生活、サークル・部活、就活</span>の3個の投稿部屋に分けています。</p>
   </div>
   <div>
-    <h2><%= link_to "学部別投稿部屋", "/unilist", class: "btn btn-success btn-lg" %></h2>
-    <p>この部屋は、<span>学部別</span>に投稿ルームを作っていて、その中で投稿していく形となっています。各学部の授業情報、学部生活の質問に最適です。</p>
-    <p>例えば、法学部の投稿部屋の中で投稿したら、その投稿は、法学部の投稿部屋の中に残ります。<span>各学部の授業情報などを聞くのに最適です。</span></p>
+    <h2><%= link_to "学部編", "/unilist", class: "btn btn-success btn-lg" %></h2>
+    <p>この部屋は、<span>学部別</span>に投稿部屋を作っています。所属学部に関する質問を是非是非!!!!</p>
   </div>
+  <div>
+    <h2><%= link_to "ユーザー情報", "/users/#{current_user.id}", class: "btn btn-primary btn-lg" %></h2>
+    <p>自分のプロフィールや、自分が投稿した質問などを確認することができます。</p>
+  </div>
+  </div>
+
+  <div class="owabi">
+    <h3>申し訳ございません。</h3>
+    <h3>投稿削除機能が実装されていないので、一度投稿した質問とか回答は削除することができません。</h3>
   </div>
 </div>

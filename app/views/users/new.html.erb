@@ -2,7 +2,6 @@
     <h1>新規登録</h1>
 
     <p>新規登録フォームです。投稿時には<span>学年</span>と<span>学部</span>と<span>ニックネーム</span>が公表されます。</p>
-    <p><span>メールアドレス</span>は一度設定すると変更することができません。</p>
     <div class="row">
     <div class = "col-md-6 col-md-offset-3" >
       <%= form_with(url: "/users/new", model: @user, local: true) do |f| %>
