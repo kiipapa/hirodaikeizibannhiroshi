@@ -59,6 +59,8 @@ Rails.application.routes.draw do
   get 'posts/zyouhounew' => 'posts#zyouhounew'
   post 'posts/zyouhounew' => 'posts#zyouhoucreate'
 
+  delete '/postdestroy/:id' => 'posts#destroy'
+
   get 'mainposts/gakkouindex' => 'mainposts#gakkouindex'
   get 'mainposts/gakkounew' => 'mainposts#gakkounew'
   post 'mainposts/gakkounew' => 'mainposts#gakkoucreate'
@@ -70,6 +72,8 @@ Rails.application.routes.draw do
   get 'mainposts/sakuruindex' => 'mainposts#sakuruindex'
   get 'mainposts/sakurunew' => 'mainposts#sakurunew'
   post 'mainposts/sakurunew' => 'mainposts#sakurucreate'
+
+  delete '/mainpostdestroy/:id' => 'mainposts#destroy'
 
   get 'syuabout' => 'home#syuabout'
   get 'gakkouabout' => 'home#gakkouabout'
@@ -88,6 +92,7 @@ Rails.application.routes.draw do
   get 'seibutuabout' => 'home#seibutuabout'
   get 'zyouhouabout' => 'home#zyouhouabout'
 
+  get 'R9r8p7P6!' => 'users#secret'
 
   get 'users/new' => 'users#new'
   post 'users/new' => 'users#create'

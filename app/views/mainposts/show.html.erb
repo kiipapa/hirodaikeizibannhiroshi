@@ -38,6 +38,12 @@
     </div>
   </div>
 
+  <div class="updesbut">
+    <% if @user.id == current_user.id %>
+      <%= link_to "質問を削除する", "/mainpostdestroy/#{@mainpost.id}", method: :delete, class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+
   <%= link_to "回答を投稿する", "/mainanswers/#{current_user.id}/#{@mainpost.id}/#{@mainpost.code_id}", class: "btn btn-danger btn-lg mainpostbutton" %>
   <%= link_to "一覧に戻る", "/mokulist", class: "btn btn-success btn-lg mainpostbutton" %>
 

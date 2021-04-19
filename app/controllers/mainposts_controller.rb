@@ -70,6 +70,13 @@ class MainpostsController < ApplicationController
     @user = User.find_by(id: @mainpost.user_id)
     @mainanswers = Mainanswer.where(post_id: @mainpost.id)
   end
+  
+  def destroy
+    @mainpost = Mainpost.find_by(id: params[:id])
+    @mainpost.destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_to("/users/#{@mainpost.user_id}")
+  end
 
   private
 

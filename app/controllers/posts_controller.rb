@@ -197,6 +197,13 @@ class PostsController < ApplicationController
     @answers = Answer.where(post_id: @post.id)
   end
 
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_to("/users/#{@post.user_id}")
+  end
+
   private
 
     def post_params

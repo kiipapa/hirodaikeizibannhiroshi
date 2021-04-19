@@ -35,6 +35,11 @@
         </div>
       <% end %>
   </div>
+  <div class="updesbut">
+    <% if @user.id == current_user.id %>
+      <%= link_to "質問を削除する", "/postdestroy/#{@post.id}", method: :delete, class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
 
   <%= link_to "回答を投稿する", "/answers/#{current_user.id}/#{@post.id}/#{@post.univ_id}", class: "btn btn-danger btn-lg postbutton" %>
   <%= link_to "学部一覧に戻る", "/unilist", class: "btn btn-success btn-lg postbutton" %>
