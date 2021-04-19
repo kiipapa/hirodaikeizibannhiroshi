@@ -67,6 +67,7 @@ class MainpostsController < ApplicationController
 
   def show
     @mainpost = Mainpost.find_by(id: params[:id])
+    @user = User.find_by(id: @mainpost.user_id)
     @mainanswers = Mainanswer.where(post_id: @mainpost.id)
   end
 

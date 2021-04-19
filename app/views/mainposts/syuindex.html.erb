@@ -3,10 +3,11 @@
   <p class="warn">質問内容をクリックすると、具体的な質問と回答を確認することができます。</p>
     <% @mainposts.each do |mainpost| %>
     <div class= "list-group-item" >
-      <div class="mainpostfont" >
-        <%= current_user.grade %>
-        <%= current_user.expert %>
-        <%= current_user.nickname %>
+      <div class="mainpostfont">
+      <% @user = User.find_by(id: mainpost.user_id) %>
+        <%= @user.grade %>
+        <%= @user.expert %>
+        <%= @user.nickname %>
       </div>
       <div class="mainpostconfont" >
         <%= link_to "#{mainpost.title}", "/mainposts/#{mainpost.code_id}/#{mainpost.id}" %>
@@ -14,6 +15,6 @@
     </div>
     <% end %>
 
-    <%= link_to "目的別投稿一覧に戻る", "/mokulist", class: "btn btn-success btn-lg mainpostbutton" %>
+    <%= link_to "一覧に戻る", "/mokulist", class: "btn btn-success btn-lg mainpostbutton" %>
     
 </div>

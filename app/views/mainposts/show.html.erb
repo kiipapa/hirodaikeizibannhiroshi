@@ -6,9 +6,9 @@
 
   <div class= "list-group-item" >
     <div class = "mainpostfont">
-      <%= current_user.grade %>
-      <%= current_user.expert %>
-      <%= current_user.nickname %>
+      <%= @user.grade %>
+      <%= @user.expert %>
+      <%= @user.nickname %>
     </div>
     <div class = "mainpostconfont">
       <%= @mainpost.title %>
@@ -25,9 +25,10 @@
       <% @mainanswers.each do |mainanswer| %>
         <div class= "list-group-item" >
           <div class = "mainpostfont">
-            <%= current_user.grade %>
-            <%= current_user.expert %>
-            <%= current_user.nickname %>
+          <% @auser = User.find_by(id: mainanswer.user_id) %>
+            <%= @auser.grade %>
+            <%= @auser.expert %>
+            <%= @auser.nickname %>
           </div>
           <div class = "mainpostconfont">
           <%= mainanswer.content %>
@@ -38,7 +39,7 @@
   </div>
 
   <%= link_to "回答を投稿する", "/mainanswers/#{current_user.id}/#{@mainpost.id}/#{@mainpost.code_id}", class: "btn btn-danger btn-lg mainpostbutton" %>
-  <%= link_to "目的別投稿一覧に戻る", "/mokulist", class: "btn btn-success btn-lg mainpostbutton" %>
+  <%= link_to "一覧に戻る", "/mokulist", class: "btn btn-success btn-lg mainpostbutton" %>
 
   </div>
 </div>

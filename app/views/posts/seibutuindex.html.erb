@@ -4,9 +4,10 @@
     <% @posts.each do |post| %>
     <div class= "list-group-item" >
       <div class = "postfont">
-        <%= current_user.grade %>
-        <%= current_user.expert %>
-        <%= current_user.nickname %>
+      <% @user = User.find_by(id: post.user_id) %>
+        <%= @user.grade %>
+        <%= @user.expert %>
+        <%= @user.nickname %>
       </div>
       <div class = "postconfont">
         <%= link_to "#{post.title}", "/posts/#{post.univ_id}/#{post.id}" %>
