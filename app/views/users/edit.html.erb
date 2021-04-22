@@ -15,14 +15,9 @@
         <%= f.select :expert, [["総合科学部", "総合科学部"],["文学部", "文学部"],["教育学部", "教育学部"],["法学部", "法学部"],["経済学部", "経済学部"],["理学部", "理学部"],["工学部", "工学部"],["生物生産学部", "生物生産学部"],["情報科学部", "情報科学部"]], class: "form-control" %>
         </div>
         <div>
-        <%= f.label :名前 , class: "form-label" %>
-        <%= f.text_field :name , class: "form-control" %>
 
         <%= f.label :ニックネーム , class: "form-label" %>
         <%= f.text_field :nickname , class: "form-control" %>
-
-        <%= f.label :メールアドレス, class: "form-label" %>
-        <%= f.email_field :email , class: "form-control" %>
       
         <%= f.label :パスワード, class: "form-label" %>
         <%= f.password_field :password , class: "form-control" %>
