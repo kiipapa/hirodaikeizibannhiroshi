@@ -29,7 +29,7 @@
         <h2>目的別投稿一覧</h2>
         <% @mainposts.each do |mainpost| %>
           <div class="list-group-item ainshow">
-            <%= link_to "#{mainpost.title}", "/mainposts/#{mainpost.code_id}/#{mainpost.id}" %>
+            <%= link_to "#{mainpost.content}", "/mainposts/#{mainpost.code_id}/#{mainpost.id}" %>
           </div>
         <% end %>
       </div>
@@ -38,7 +38,7 @@
         <h2>学科別投稿一覧</h2>
         <% @posts.each do |post| %>
           <div class="list-group-item ainshow">
-            <%= link_to "#{post.title}", "/posts/#{post.univ_id}/#{post.id}" %>
+            <%= link_to "#{post.content}", "/posts/#{post.univ_id}/#{post.id}" %>
           </div>
         <% end %>
       </div>
