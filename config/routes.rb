@@ -97,6 +97,7 @@ Rails.application.routes.draw do
   get 'users/new' => 'users#new'
   post 'users/new' => 'users#create'
   get 'users/:id' => 'users#show'
+  get 'users/detail/:id' => 'users#detail'
   get 'users/:id/edit' => 'users#edit'
   patch 'users/:id/update' => 'users#update'
 

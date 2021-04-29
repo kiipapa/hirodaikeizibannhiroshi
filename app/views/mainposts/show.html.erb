@@ -8,7 +8,7 @@
     <div class = "mainpostfont">
       <%= @user.grade %>
       <%= @user.expert %>
-      <%= @user.nickname %>
+      <%= link_to @user.nickname, "/users/detail/#{@user.id}" %>
     </div>
     <div class = "mainpostconfont mainpostcolor">
       <%= @mainpost.content %>
@@ -25,7 +25,7 @@
           <% @auser = User.find_by(id: mainanswer.user_id) %>
             <%= @auser.grade %>
             <%= @auser.expert %>
-            <%= @auser.nickname %>
+            <%= link_to @auser.nickname, "/users/detail/#{@auser.id}" %>
           </div>
           <div class = "mainpostconfont">
           <%= mainanswer.content %>

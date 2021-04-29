@@ -8,7 +8,7 @@
     <div class = "postfont">
       <%= @user.grade %>
       <%= @user.expert %>
-      <%= @user.nickname %>
+      <%= link_to @user.nickname, "/users/detail/#{@user.id}" %>
     </div>
     <div class = "postconfont postcolor">
       <%= @post.content %>
@@ -24,7 +24,7 @@
           <% @auser = User.find_by(id: answer.user_id) %>
             <%= @auser.grade %>
             <%= @auser.expert %>
-            <%= @auser.nickname %>
+            <%= link_to @auser.nickname, "/users/detail/#{@auser.id}" %>
           </div>
           <div class = "postconfont">
           <%= answer.content %>
