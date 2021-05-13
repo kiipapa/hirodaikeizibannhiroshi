@@ -1,0 +1,2 @@
+class Mainlike < ApplicationRecord
+end

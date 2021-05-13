@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.img = "default.jpg"
     if @user.save
       flash[:success] = "新規登録が完了しました。ログインをしてください。"
       redirect_to("/")
@@ -18,6 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @followed = Relationship.where(follower_id: current_user.id)
+    @follower = Relationship.where(followed_id: current_user.id)
     @posts = Post.where(user_id: current_user.id)
     @mainposts = Mainpost.where(user_id: current_user.id)
   end
@@ -43,6 +46,64 @@ class UsersController < ApplicationController
 
   def detail
     @user = User.find_by(id: params[:id])
+    @followed = Relationship.where(follower_id: @user.id)
+    @follower = Relationship.where(followed_id: @user.id)
+  end
+
+  def follow
+    @follow = Relationship.new
+    @follow.follower_id = current_user.id
+    @follow.followed_id = params[:id].to_i
+    if @follow.save
+      flash[:success] = "フォローしました"
+      redirect_to "/users/detail/#{@follow.followed_id}"
+    end
+  end
+
+  def unfollow
+    @user = User.find_by(id: params[:id])
+    @follow = Relationship.find_by(follower_id: current_user.id, followed_id: @user.id)
+    @follow.destroy
+    flash[:success] = "フォローを解除しました"
+    redirect_to "/users/detail/#{@user.id}"
+  end
+
+  def follow_form
+    @user = User.find_by(id: params[:id])
+    @followers = Relationship.where(follower_id: @user.id)
+  end
+
+  def follower_form
+    @user = User.find_by(id: params[:id])
+    @follows = Relationship.where(followed_id: @user.id)
+  end
+
+  
+  def delete_form
+    @user = User.find_by(id: current_user.id)
+  end
+
+  def destroy
+    @user = User.find_by(id: current_user.id)
+    @user.destroy
+    @posts = Post.where(user_id: current_user.id)
+    @posts.destroy_all
+    @mainposts = Mainpost.where(user_id: current_user.id)
+    @mainposts.destroy_all
+    @answers = Answer.where(user_id: current_user.id)
+    @answers.destroy_all
+    @mainanswers = Mainanswer.where(user_id: current_user.id)
+    @mainanswers.destroy_all
+    @likes = Like.where(user_id: current_user.id)
+    @likes.destroy_all
+    @mainlikes = Mainlike.where(user_id: current_user.id)
+    @mainlikes.destroy_all
+    @f = Relationship.where(followed_id: current_user.id)
+    @f.destroy_all
+    @g = Relationship.where(follower_id: current_user.id)
+    @g.destroy_all
+    flash[:success] = "アカウントを削除しました"
+    redirect_to ("/")
   end
 
   private

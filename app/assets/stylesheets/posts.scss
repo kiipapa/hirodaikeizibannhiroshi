@@ -2,53 +2,250 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.postbutton {
-  margin-top: 30px;
-}
+.postindex {
 
-.list-group-item {
-  margin-top: 30px;
-}
+  h1 {
+    border-bottom: solid 3px skyblue;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+  
+  h1:after {
+    position: absolute;
+    content: " ";
+    display: block;
+    border-bottom: solid 3px #ffc778;
+    bottom: -3px;
+    width: 30%;
+  }
 
-.postsub {
-  margin-top: 30px;
-}
+  .ribbon2 {
+    display: inline-block;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    padding: 7px 0;
+    font-size: 18px;/*フォントサイズ*/
+    background: #78d0f5;/*背景色*/
+    color: #FFF;/*文字色*/
+    box-sizing: border-box;
+    margin-bottom: 30px;
+  }
+  
+  .ribbon2 h2 {
+    margin: 0;
+    padding: 0 30px;
+    border-top: dashed 1px #FFF;/*上の破線*/
+    border-bottom: dashed 1px #FFF;/*下の破線*/
+    line-height: 46px;
+    font-size: 25px;
+  }
+  
+  .ribbon2:before, .ribbon2:after {
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    z-index: 1;
+  }
+  
+  .ribbon2:before {
+    /*左端の山形*/
+    top: 0;
+    left: 0;
+    border-width: 30px 0px 30px 15px;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+  }
+  
+  .ribbon2:after {
+    /*右端の山形*/
+    top: 0;
+    right: 0;
+    border-width: 30px 15px 30px 0px;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+  }
 
-.show h1 {
-  margin-bottom: 40px;
-}
+  .balloon1-left {
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0 1.5em 15px;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #e0edff;
+    border-radius: 8%;
+  }
+  
+  .balloon1-left:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    margin-top: -15px;
+    border: 15px solid transparent;
+    border-right: 15px solid #e0edff;
+  }
+  
+  .balloon1-left p {
+    margin: 0;
+    padding: 5px;
+    font-size: 25px;
+  }
 
-.postfont {
-  font-size: 25px;
-  color: skyblue;
-  margin-bottom: 15px;
-}
+  span {
+    color: red;
+  }
 
-.postconfont {
-  font-size: 35px;
-}
+  .keyword {
+    margin-bottom: 4em;
+  }
 
-.postprofont {
-  margin-top: 15px;
-  font-size: 25px;
-}
+  .box22{
+    padding: 0.5em 1em;
+    margin-bottom: 2em;
+    background: #f4f4f4;
+    border-left: solid 6px #5bb7ae;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+  }
+  .box22 p {
+    margin: 0; 
+    padding: 0;
+  }
 
-.mainshow h2 {
-  color: red;
-  background-color: chartreuse;
-}
+  .box18{
+    margin:2em 0;
+    position: relative;
+    padding: 0.25em 1em;
+    border: solid 2px #ffcb8a;
+    border-radius: 3px 0 3px 0;
+  }
+  .box18:before,.box18:after
+  {
+    content: '';
+    position: absolute;
+    width:10px;
+    height: 10px;
+    border: solid 2px #ffcb8a;
+    border-radius: 50%;
+  }
+  .box18:after {
+    top:-12px;
+    left:-12px;
+  }
+  .box18:before {
+    bottom:-12px;
+    right:-12px;
+  }
+  .box18 p {
+    margin: 0; 
+    padding: 0;
+  }
 
-.warn {
-  color: blue;
-  font-weight: bold;
-  font-size: 22px;
-  margin-top: 30px;
-}
+  .postuser {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: red;
+    a:link {color: red; text-decoration:none }
+    a:visited { color: red; text-decoration:none }
+    a:hover { color: gray; text-decoration:none }
+    a:active { color: gray; text-decoration:none }
+  }
 
-.updesbut {
-  margin-top: 30px;
-}
+  .postcontent {
+    font-size: 30px;
+  }
 
-.postcolor {
-  color: red;
+  .button-square-so-pop {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    background: orange;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px orange;/*線色*/
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+  
+  .button-square-so-pop:active {
+    /*押したとき*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+
+  .button-square-so-red {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    background: red;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px red;/*線色*/
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+  
+  .button-square-so-red:active {
+    /*押したとき*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+
+  .returnbutton {
+    margin-bottom: 50px;
+    .button-square-so-blue {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    background: cyan;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px cyan;/*線色*/
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    }
+
+    .button-square-so-blue:active {
+      /*押したとき*/
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+    }
+  }
+  
+
+  a:link {color: black; text-decoration:none }
+  a:visited { color: black; text-decoration:none }
+  a:hover { color: gray; text-decoration:none }
+  a:active { color: gray; text-decoration:none }
+
+  .updesbut {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .postsub {
+    margin-top: 30px;
+  }
+
+  .form-label {
+    color: red;
+    font-size: 20px;
+  }
+
+  .like {
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
 }

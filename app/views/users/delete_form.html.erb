@@ -1,0 +1,12 @@
+<div class = "user">
+<div class="container">
+
+<% if current_user.id == @user.id %>
+  <h1>本当にアカウントを削除しますか？</h1>
+  <p>アカウントを削除した場合、あなたのユーザー情報を含め、質問、回答したデータ、いいねやフォローしたデータもすべて消えます。</p>
+  <p>よろしいですか？</p>
+  <%= link_to "アカウントを削除する", "/delete",  method: :delete, class: "button-square-so-red" %>
+<% end %>
+
+</div>
+</div>

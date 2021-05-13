@@ -2,8 +2,31 @@ class PostsController < ApplicationController
 
   before_action :logged_in_user
 
+
+  def like
+    @post = Post.find_by(id: params[:id])
+    @like = Like.new
+    @like.user_id = current_user.id
+    @like.post_id = params[:id].to_i
+    if @like.save
+      flash[:success] = "いいねしました"
+      redirect_to ("/posts/#{@post.univ_id}/#{@post.id}")
+    end
+  end
+
+  def likedestroy
+    @post = Post.find_by(id: params[:id])
+    @like = Like.find_by(user_id: current_user.id, post_id: @post.id)
+    if @like.destroy
+      flash[:success] = "いいねを取り消しました"
+      redirect_to ("/posts/#{@post.univ_id}/#{@post.id}")
+    end
+  end
+
   def sogoindex
-    @posts = Post.where(univ_id: 1)
+    @searchconpo = Post.where(univ_id: 1)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def sogonew
@@ -24,7 +47,9 @@ class PostsController < ApplicationController
   end
 
   def bunindex
-    @posts = Post.where(univ_id: 2)
+    @searchconpo = Post.where(univ_id: 2)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def bunnew
@@ -45,7 +70,9 @@ class PostsController < ApplicationController
   end
 
   def kyouindex
-    @posts = Post.where(univ_id: 3)
+    @searchconpo = Post.where(univ_id: 3)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def kyounew
@@ -66,7 +93,9 @@ class PostsController < ApplicationController
   end
 
   def houindex
-    @posts = Post.where(univ_id: 4)
+    @searchconpo = Post.where(univ_id: 4)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def hounew
@@ -87,7 +116,9 @@ class PostsController < ApplicationController
   end
 
   def keiindex
-    @posts = Post.where(univ_id: 5)
+    @searchconpo = Post.where(univ_id: 5)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def keinew
@@ -108,7 +139,9 @@ class PostsController < ApplicationController
   end
 
   def riindex
-    @posts = Post.where(univ_id: 6)
+    @searchconpo = Post.where(univ_id: 6)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def rinew
@@ -129,7 +162,9 @@ class PostsController < ApplicationController
   end
 
   def kouindex
-    @posts = Post.where(univ_id: 7)
+    @searchconpo = Post.where(univ_id: 7)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def kounew
@@ -150,7 +185,9 @@ class PostsController < ApplicationController
   end
 
   def seibutuindex
-    @posts = Post.where(univ_id: 8)
+    @searchconpo = Post.where(univ_id: 8)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def seibutunew
@@ -171,7 +208,9 @@ class PostsController < ApplicationController
   end
 
   def zyouhouindex
-    @posts = Post.where(univ_id: 9)
+    @searchconpo = Post.where(univ_id: 9)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def zyouhounew
@@ -195,11 +234,16 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)
     @answers = Answer.where(post_id: @post.id)
+    @like = Like.where(post_id: @post.id)
   end
 
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    @answers = Answer.where(post_id: @post.id)
+    @answers.destroy_all
+    @likes = Like.where(post_id: @post.id)
+    @likes.destroy_all
     flash[:success] = "投稿を削除しました"
     redirect_to("/users/#{@post.user_id}")
   end

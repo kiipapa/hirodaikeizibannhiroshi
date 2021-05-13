@@ -10,8 +10,9 @@
           <%= link_to "このアプリについて", "/about", class: "navbar-brand" %>
           <%= link_to "学校生活・就活編", "/mokulist", class: "navbar-brand" %>
           <%= link_to "学部編", "/unilist", class: "navbar-brand" %>
-          <%= link_to "ユーザー情報", "/users/#{current_user.id}", class: "navbar-brand" %>
+          <%= link_to "マイページ", "/users/#{current_user.id}", class: "navbar-brand" %>
           <%= link_to "ログアウト", "/logout", method: :delete, class: "navbar-brand" %>
+          <%= link_to "アカウントを削除する", "/delete_form", class: "navbar-brand" %>
         </ul>
       <% else %>
         <ul>

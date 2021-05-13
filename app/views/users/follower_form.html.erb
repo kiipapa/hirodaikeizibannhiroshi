@@ -1,0 +1,12 @@
+<div class = "user">  
+  <div class="container">
+
+    <h1>フォロワーリスト</h1>
+
+    <% @follows.each do |follow| %>
+      <% @fuser = User.find_by(id: follow.follower_id) %>
+      <%= @fuser.nickname %>
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class = "user"> 
+  <div class="container">
+
+    <h1>フォローリスト</h1>
+
+    <% @followers.each do |follower| %>
+      <% @fuser = User.find_by(id: follower.followed_id) %>
+      <div class = "box22">
+        <p><%= @fuser.nickname %></p>
+      </div>
+    <% end %>
+
+  </div>
+</div>

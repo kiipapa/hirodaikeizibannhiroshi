@@ -20,13 +20,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-  background-color: #ffffcc;
-}
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 .container {
   margin: 0 auto;
   text-align: center;
-  margin-bottom: 100px;
+}
+
+.space {
+  margin-bottom: 150px;
 }
 

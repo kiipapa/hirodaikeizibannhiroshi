@@ -1,19 +1,36 @@
+<div class = "user">
 <div class = "container">
-  <div class="userdetail">
-    <h1>ユーザー情報</h1>
+
+  <div>
+    <h1><%= @user.nickname %>さんの情報</h1>
+
     <div>
-      <div class="list-group-item">
-        <h3>学年</h3>
-        <div class="userfont"><%= @user.grade %></div>
-      </div>
-      <div class="list-group-item">
-        <h3>学部</h3>
-        <div class="userfont"><%= @user.expert %></div>
-      </div>
-      <div class="list-group-item">
-        <h3>ニックネーム</h3>
-        <div class="userfont"><%= @user.nickname %></div>
-      </div>
+      <% if Relationship.find_by(follower_id: current_user.id, followed_id: @user.id) %>
+        <%= link_to "フォロー解除する", "/relationships/#{@user.id}/destroy", method: :delete, class: "button-square-so-red" %>
+      <% else %>
+        <%= link_to "フォローする", "/relationships/#{@user.id}", method: :post, class: "button-square-so-blue" %>
+      <% end %>
+    </div>
+
+    <div class="follow">
+      <%= link_to "フォロー #{@followed.count}", "/relationships/#{@user.id}/follow", class: "followbutton" %>
+      
+      <%= link_to "フォロワー #{@follower.count}", "/relationships/#{@user.id}/follower", class: "followbutton" %>
+    </div>
+
+    <div class="box14">
+      <h3>学年</h3>
+      <p><%= @user.grade %></p>
+    </div>
+    <div class="box14">
+      <h3>学部</h3>
+      <p><%= @user.expert %></p>
+    </div>
+    <div class="box14">
+      <h3>ニックネーム</h3>
+      <p><%= @user.nickname %></p>
     </div>
   </div>
+
+</div>
 </div>

@@ -1,18 +1,21 @@
-<div class="container">
-  <div class="row mokulist">
-  <h1>学校生活編</h1>
+<div class="mokulist">
+  <div class="container">
 
-  <p><span>学校生活、部活、サークル</span>に分けて投稿部屋を作っています。</p>
+    <h1>学校生活編</h1>
 
-  <div class="mokulistdetail">
-    <ul>
-      <%= link_to "学校生活", "/gakkouabout" , class: "list-group-item" %>
-      <%= link_to "部活・サークル", "/sakuruabout" , class: "list-group-item" %>
-      <%= link_to "就職活動", "/syuabout" , class: "list-group-item" %>
-    </ul>
-  </div>
+    <p><span>学校生活</span>、<span>部活・サークル</span>、<span>就職活動</span>に分けて投稿部屋を作っています。</p>
 
-  <div>
-    <%= link_to "ログイントップに戻る", "/logintop", class: "btn btn-success btn-lg mokubotton" %>
+    <div>
+      <ul>
+        <li><%= link_to "学校生活", "/gakkouabout"  %></li>
+        <li><%= link_to "部活・サークル", "/sakuruabout"  %></li>
+        <li><%= link_to "就職活動", "/syuabout"  %></li>
+      </ul>
+    </div>
+
+    <div>
+      <%= link_to "ログイントップに戻る", "/logintop", class: "button-square-so-pop" %>
+    </div>
+
   </div>
 </div>

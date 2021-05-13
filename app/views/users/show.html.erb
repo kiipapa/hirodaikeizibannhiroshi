@@ -1,44 +1,63 @@
-<div class = "container">
-  <div class="userdetail">
-    <h1>ユーザー情報</h1>
+<div class = "user">
+
+  <div class="container">
+    
+    <h1>MY アカウント</h1>
+
+    <div class="follow">
+      <%= link_to "フォロー #{@followed.count}", "/relationships/#{current_user.id}/follow", class: "followbutton" %>
+      
+      <%= link_to "フォロワー #{@follower.count}", "/relationships/#{current_user.id}/follower", class: "followbutton" %>
+    </div>
+
     <div>
-      <div class="list-group-item">
+      <div class="box14">
         <h3>学年</h3>
-        <div class="userfont"><%= current_user.grade %></div>
+        <p><%= current_user.grade %></p>
       </div>
-      <div class="list-group-item">
+      <div class="box14">
         <h3>学部</h3>
-        <div class="userfont"><%= current_user.expert %></div>
+        <p><%= current_user.expert %></p>
       </div>
-      <div class="list-group-item">
+      <div class="box14">
         <h3>ニックネーム</h3>
-        <div class="userfont"><%= current_user.nickname %></div>
+        <p><%= current_user.nickname %></p>
       </div>
     </div>
-    <%= link_to "ユーザー情報を変更する" , "/users/#{current_user.id}/edit" , class: "btn btn-primary btn-lg updatebot" %>
-  </div>
 
-  <div class="usershow">
-    <h1>ユーザが投稿した質問の一覧</h1>
+    <div>
+      <%= link_to "ユーザー情報を変更する" , "/users/#{current_user.id}/edit" , class: "button-square-so-blue" %>
+    </div>
 
-    <h3>質問をクリックすると、その質問と回答を見ることができます。</h3>
-    <h3>クリックしたリンク先で質問を削除することもできます。</h3>
+    <h1>あなたが投稿した質問の一覧</h1>
+
+    <div class="balloon1-left">
+      <p>質問をクリックすると、その質問と回答を見ることができます。</p>
+      <p>クリックしたリンク先で質問を削除することもできます。</p>
+    </div>
     
+    <div>
 
-      <div class="mokushow">
+      <div class = "ribbon2">
         <h2>目的別投稿一覧</h2>
-        <% @mainposts.each do |mainpost| %>
-          <div class="list-group-item ainshow">
-            <%= link_to "#{mainpost.content}", "/mainposts/#{mainpost.code_id}/#{mainpost.id}" %>
-          </div>
-        <% end %>
       </div>
 
-      <div class="mokushow">
-        <h2>学科別投稿一覧</h2>
+      <% @mainposts.each do |mainpost| %>
+        <div class="box22">
+          <p><%= link_to "#{mainpost.content}", "/mainposts/#{mainpost.code_id}/#{mainpost.id}" %></p>
+        </div>
+      <% end %>
+    </div>
+
+      <div>
+
+        <div class = "ribbon2">
+          <h2>学科別投稿一覧</h2>
+        </div>
+
         <% @posts.each do |post| %>
-          <div class="list-group-item ainshow">
-            <%= link_to "#{post.content}", "/posts/#{post.univ_id}/#{post.id}" %>
+          <div class="box22">
+            <p><%= link_to "#{post.content}", "/posts/#{post.univ_id}/#{post.id}" %></p>
           </div>
         <% end %>
       </div>

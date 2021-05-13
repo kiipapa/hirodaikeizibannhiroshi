@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_102317) do
+ActiveRecord::Schema.define(version: 2021_05_05_021042) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -21,11 +21,25 @@ ActiveRecord::Schema.define(version: 2021_04_25_102317) do
     t.integer "auni_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "mainanswers", force: :cascade do |t|
     t.text "content"
     t.integer "post_id"
     t.integer "user_id"
     t.integer "acode_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mainlikes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -45,6 +59,13 @@ ActiveRecord::Schema.define(version: 2021_04_25_102317) do
     t.integer "univ_id"
     t.integer "user_id"
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "followed_id"
+    t.integer "follower_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

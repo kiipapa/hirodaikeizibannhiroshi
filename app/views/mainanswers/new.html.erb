@@ -1,14 +1,14 @@
-<div class="container">
-<div class="row">
-  <h1>回答送信ページ</h1>
-  <div class = "col-md-6 col-md-offset-3">
-    <%= form_with(url: "/mainanswers/#{@mainanswer.user_id}/#{@mainanswer.post_id}/#{@mainanswer.acode_id}", model: @mainanswer, local: true) do |f| %>
+<div class="answer">
+  <div class="container">
+    <h1>回答送信ページ</h1>
+    <div class = "col-md-6 col-md-offset-3">
+      <%= form_with(url: "/mainanswers/#{@mainanswer.user_id}/#{@mainanswer.post_id}/#{@mainanswer.acode_id}", model: @mainanswer, local: true) do |f| %>
 
-      <%= f.label :回答送信フォーム  , class: "form-label" %>
-      <%= f.text_area :content , size: "20x15", class: "form-control " %>
+        <%= f.label :回答送信フォーム  , class: "form-label" %>
+        <%= f.text_area :content , size: "20x15", class: "form-control " %>
 
-      <%= f.submit "回答を投稿する", class: "form-control mainanswersub" %>
-    <% end %>
+        <%= f.submit "回答を投稿する", class: "form-control answersub" %>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>

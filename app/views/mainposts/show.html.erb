@@ -1,48 +1,68 @@
-<div class="container">
-  <div class="mainshow">
-  <h1>質問内容と回答</h1>
+<div class="mainpostindex">
+  <div class="container">
 
-  <h2>質問内容</h2>
-
-  <div class= "list-group-item" >
-    <div class = "mainpostfont">
-      <%= @user.grade %>
-      <%= @user.expert %>
-      <%= link_to @user.nickname, "/users/detail/#{@user.id}" %>
+    <div class="balloon1-left">
+      <p><span>ハートボタン</span>を押すといいねができます。</p>
+      <p><span>ニックネーム</span>を押すとその人のプロフィールを見ることができます。</p>
     </div>
-    <div class = "mainpostconfont mainpostcolor">
-      <%= @mainpost.content %>
+
+    <h1>質問内容と回答</h1>
+
+    <div class = "ribbon2"><h2>質問内容</h2></div>
+
+    <div class= "box22" >
+
+      <div class = "postuser">
+        <%= @user.grade %>
+        <%= @user.expert %>
+        <%= link_to @user.nickname, "/users/detail/#{@user.id}" %>
+      </div>
+
+      <div class = "postcontent">
+        <%= @mainpost.content %>
+      </div>
+
+      <div class = "like">
+        <% if Mainlike.find_by(user_id: current_user.id, post_id: @mainpost.id) %>
+          <%= link_to("/mainlike/#{@post.id}/destroy", method: :delete) do %>
+            <span class= "fa fa-heart like-btn-unlike" ></span>
+          <% end %>
+        <% else %>
+          <%= link_to("/mainlike/#{@mainpost.id}", method: :post) do %>
+            <span class= "fa fa-heart like-btn" ></span>
+          <% end %>
+        <% end %>
+        <%= @like.count %>
+      </div>
     </div>
-  </div>
 
-  <h2>回答</h2>
+    <div class="updesbut">
+      <% if @user.id == current_user.id %>
+        <%= link_to "質問を削除する", "/mainpostdestroy/#{@mainpost.id}", method: :delete, class: "button-square-so-red" %>
+      <% end %>
+        <%= link_to "回答を投稿する", "/mainanswers/#{current_user.id}/#{@mainpost.id}/#{@mainpost.code_id}", class: "button-square-so-pop" %>
+    </div>
 
-  <div>
+    <div class="ribbon2"><h2>回答内容</h2></div>
+
     <div>
       <% @mainanswers.each do |mainanswer| %>
-        <div class= "list-group-item" >
-          <div class = "mainpostfont">
+        <div class= "box18" >
+          <div class = "postuser">
           <% @auser = User.find_by(id: mainanswer.user_id) %>
             <%= @auser.grade %>
             <%= @auser.expert %>
             <%= link_to @auser.nickname, "/users/detail/#{@auser.id}" %>
           </div>
-          <div class = "mainpostconfont">
+          <div class = "postcontent">
           <%= mainanswer.content %>
           </div>
         </div>
       <% end %>
     </div>
-  </div>
 
-  <div class="updesbut">
-    <% if @user.id == current_user.id %>
-      <%= link_to "質問を削除する", "/mainpostdestroy/#{@mainpost.id}", method: :delete, class: "btn btn-primary btn-lg" %>
-    <% end %>
-  </div>
-
-  <%= link_to "回答を投稿する", "/mainanswers/#{current_user.id}/#{@mainpost.id}/#{@mainpost.code_id}", class: "btn btn-danger btn-lg mainpostbutton" %>
-  <%= link_to "一覧に戻る", "/mokulist", class: "btn btn-success btn-lg mainpostbutton" %>
-
+    <div class = "returnbutton">
+    <%= link_to "目次に戻る", "/mokulist", class: "button-square-so-blue" %>
+    </div>
   </div>
 </div>

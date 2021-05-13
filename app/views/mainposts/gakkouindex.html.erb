@@ -1,20 +1,49 @@
-<div class="container">
-  <h1>学校生活に関する質問一覧</h1>
-  <p class="warn">質問内容をクリックすると、具体的な質問と回答を確認することができます。</p>
-    <% @mainposts.each do |mainpost| %>
-    <div class= "list-group-item" >
-      <div class="mainpostfont">
-      <% @user = User.find_by(id: mainpost.user_id) %>
-        <%= @user.grade %>
-        <%= @user.expert %>
-        <%= link_to @user.nickname, "/users/detail/#{@user.id}" %>
-      </div>
-      <div class="mainpostconfont">
-        <%= link_to "#{mainpost.content}", "/mainposts/#{mainpost.code_id}/#{mainpost.id}" %>
-      </div>
+<div class="mainpostindex">
+  <div class = "container">
+
+    <h1>学校生活に関する質問一覧</h1>
+
+    <div class="balloon1-left">
+      <p><span>投稿者のニックネーム</span>をクリックすると、その人のプロフィールを確認することができます。</p>
+      <p><span>質問内容</span>をクリックすると、具体的な質問と回答を確認することができます。</p>
     </div>
+
+    <div class="keyword">
+
+      <div class="ribbon2"><h2>キーワード検索</h2></div>
+
+      
+
+      <%= search_form_for @search, url: "/mainposts/gakkouindex" do |f| %>
+
+        <%= f.search_field :content_cont %>
+
+        <%= f.submit "検索" %>
+      <% end %>
+
+    </div>
+
+  
+    <% @mainposts.each do |mainpost| %>
+      <div class= "box22" >
+
+        <div class = "postuser">
+          <% @user = User.find_by(id: mainpost.user_id) %>
+          <%= @user.grade %>
+          <%= @user.expert %>
+          <%= link_to @user.nickname, "/users/detail/#{@user.id}" %>
+        </div>
+
+        <div class = "postcontent">
+          <%= link_to "#{mainpost.content}", "/mainposts/#{mainpost.code_id}/#{mainpost.id}" %>
+        </div>
+
+      </div>
     <% end %>
 
-    <%= link_to "一覧に戻る", "/mokulist", class: "btn btn-success btn-lg mainpostbutton" %>
-    
+    <%= paginate @mainposts %>
+
+    <%= link_to "学部一覧に戻る", "/mokulist", class: "button-square-so-pop" %>
+
+  </div>
 </div>

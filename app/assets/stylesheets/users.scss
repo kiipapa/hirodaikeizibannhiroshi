@@ -3,23 +3,34 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.form-label {
-  margin-top: 30px;
-}
-
-.subbo {
-  margin-top: 50px;
-  margin-bottom: 200px;
-}
-
-.formpost {
+.usersnew {
   h1 {
-    margin-bottom: 40px;
-    font-size: 40px;
+    position: relative;
+    color: #333;
+    display: inline-block;
+    margin: 47px 0;
+    text-shadow: 0 0 2px white;
+  }
+  h1:before {
+    content: "";
+    position: absolute;
+    background: #a9e1ff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: 50%;
+    border: dashed 1px white;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    box-shadow: 0px 0px 0px 5px #a9e1ff;
+    margin-bottom: 20px;
   }
   p {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
     span {
       color: red;
       font-weight: bold;
@@ -27,45 +38,206 @@
   }
 }
 
-.usershow h3{
-  color: blue;
-  font-weight: bold;
+.user {
+  h1 {
+    border-bottom: solid 3px skyblue;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+  
+  h1:after {
+    position: absolute;
+    content: " ";
+    display: block;
+    border-bottom: solid 3px #ffc778;
+    bottom: -3px;
+    width: 30%;
+  }
+
+  p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
+
+  .ribbon2 {
+    display: inline-block;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    padding: 7px 0;
+    font-size: 18px;/*フォントサイズ*/
+    background: orange;/*背景色*/
+    color: #FFF;/*文字色*/
+    box-sizing: border-box;
+    margin-bottom: 30px;
+  }
+  
+  .ribbon2 h2 {
+    margin: 0;
+    padding: 0 30px;
+    border-top: dashed 1px #FFF;/*上の破線*/
+    border-bottom: dashed 1px #FFF;/*下の破線*/
+    line-height: 46px;
+    font-size: 25px;
+  }
+  
+  .ribbon2:before, .ribbon2:after {
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    z-index: 1;
+  }
+  
+  .ribbon2:before {
+    /*左端の山形*/
+    top: 0;
+    left: 0;
+    border-width: 30px 0px 30px 15px;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+  }
+  
+  .ribbon2:after {
+    /*右端の山形*/
+    top: 0;
+    right: 0;
+    border-width: 30px 15px 30px 0px;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+  }
+
+  .box14{
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: #CCFFCC	;
+    box-shadow: 0px 0px 0px 10px #CCFFCC	;
+    border: dashed 2px white;
+  }
+
+  .box14 h3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: red;
+  }
+
+  .box14 p {
+    margin: 0; 
+    padding: 0;
+    font-size: 35px;
+  }
+
+  .button-square-so-blue {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    background: cyan;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px cyan;/*線色*/
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+
+  .button-square-so-blue:active {
+    /*押したとき*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+
+  .button-square-so-red {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    background: red;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px red;/*線色*/
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+  
+  .button-square-so-red:active {
+    /*押したとき*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+
+  .balloon1-left {
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0 1.5em 15px;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #e0edff;
+    border-radius: 8%;
+  }
+  
+  .balloon1-left:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    margin-top: -15px;
+    border: 15px solid transparent;
+    border-right: 15px solid #e0edff;
+  }
+  
+  .balloon1-left p {
+    margin: 0;
+    padding: 5px;
+    font-size: 25px;
+  }
+  
+  .box22{
+    padding: 0.5em 1em;
+    margin-bottom: 2em;
+    background: #f4f4f4;
+    border-left: solid 6px #5bb7ae;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+  }
+  .box22 p {
+    margin: 0; 
+    padding: 0;
+    font-size: 25px;
+  }
+
+  a:link {color: black; text-decoration:none }
+  a:visited { color: black; text-decoration:none }
+  a:hover { color: red; text-decoration:none }
+  a:active { color: red; text-decoration:none }
+
+  .form-label {
+    margin-top: 30px;
+  }
+  
+  .subbo {
+    margin-top: 50px;
+    margin-bottom: 200px;
+  }
+
+  .follow {
+
+    .followbutton {
+      padding-right: 10px;
+      padding-left: 10px;
+      font-size: 25px;
+    }
+
+    p {
+      color: red;
+      font-size: 25px;
+    }
+  }
 }
 
-.usershow h1 {
-  margin-top: 40px;
-  margin-bottom: 30px;
-  background-color: chocolate;
-  color: white;
-}
-
-.userdetail h1 {
-  color: white;
-  background-color: chocolate;
-}
-
-.mokushow {
-  color: red;
-}
-
-.ainshow {
-  font-size: 20px;
-}
-
-.userfont {
-  font-size: 40px;
-  color: red;
-}
-
-.updatebot {
-  margin-top: 30px;
-}
-
-.four {
-  margin-top: 40px;
-  margin-bottom: 10px;
-}
-
-.formpost h1{
-  background-color: yellowgreen;
-}

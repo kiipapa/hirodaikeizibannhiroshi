@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  post 'relationships/:id' => 'users#follow'
+  delete 'relationships/:id/destroy' => 'users#unfollow'
+  get 'relationships/:id/follow' => 'users#follow_form'
+  get 'relationships/:id/follower' => 'users#follower_form'
+
   
   get 'mainanswers/:user_id/:post_id/:acode_id' => 'mainanswers#new'
   post 'mainanswers/:user_id/:post_id/:acode_id' => 'mainanswers#create'
@@ -11,6 +16,10 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  post 'mainlike/:id' => 'mainposts#mainlike'
+  delete 'mainlike/:id/destroy' => 'mainposts#mainlikedestroy'
+  post 'like/:id' => 'posts#like'
+  delete 'like/:id/destroy' => 'posts#likedestroy'
 
   get 'posts/:univ_id/:id' => 'posts#show'
   get 'mainposts/:code_id/:id' => 'mainposts#show'
@@ -100,6 +109,8 @@ Rails.application.routes.draw do
   get 'users/detail/:id' => 'users#detail'
   get 'users/:id/edit' => 'users#edit'
   patch 'users/:id/update' => 'users#update'
+  get 'delete_form' => 'users#delete_form'
+  delete 'delete' => 'users#destroy'
 
   get '/about' => 'home#about'
   get '/' => 'home#top'

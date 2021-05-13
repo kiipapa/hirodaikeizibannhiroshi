@@ -1,11 +1,12 @@
-<div class="container formpost">
+<div class="user">
+  <div class = "container">
     <h1>ユーザー情報変更</h1>
 
-    <div class="row">
     <div class = "col-md-6 col-md-offset-3" >
       <%= form_with(url: "/users/#{@user.id}/update", model: @user, local: true) do |f| %>
   
         <%= render 'shared/error_messages' %>
+
         <div>
         <%= f.label :学年 , class: "form-label" %>
         <%= f.select :grade, [["1年生", "1年生"],["2年生", "2年生"],["3年生", "3年生"],["4年生", "4年生"],["大学院", "大学院"],["OB", "OB"]], class: "form-control" %>
@@ -30,5 +31,5 @@
         </div>
       <% end %>
     </div>
-    </div>
+  </div>
 </div>
