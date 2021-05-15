@@ -6,6 +6,7 @@
     <div class="balloon1-left">
       <p><span>投稿者のニックネーム</span>をクリックすると、その人のプロフィールを確認することができます。</p>
       <p><span>質問内容</span>をクリックすると、具体的な質問と回答を確認することができます。</p>
+      <p>質問内容をクリックした先でその質問に対する回答をすることができます。</p>
     </div>
 
     <div class="keyword">
@@ -29,9 +30,7 @@
 
         <div class = "postuser">
           <% @user = User.find_by(id: mainpost.user_id) %>
-          <%= @user.grade %>
-          <%= @user.expert %>
-          <%= link_to @user.nickname, "/users/detail/#{@user.id}" %>
+          <%= link_to " #{@user.grade} #{@user.expert} #{@user.nickname}", "/users/detail/#{@user.id}" %>
         </div>
 
         <div class = "postcontent">
