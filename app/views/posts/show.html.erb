@@ -13,9 +13,7 @@
     <div class= "box22" >
 
       <div class = "postuser">
-        <%= @user.grade %>
-        <%= @user.expert %>
-        <%= link_to @user.nickname, "/users/detail/#{@user.id}" %>
+        <%= link_to "#{@user.grade} #{@user.expert} #{@user.nickname}", "/users/detail/#{@user.id}" %>
       </div>
 
       <div class = "postcontent">
@@ -50,9 +48,7 @@
         <div class= "box18" >
           <div class = "postuser">
           <% @auser = User.find_by(id: answer.user_id) %>
-            <%= @auser.grade %>
-            <%= @auser.expert %>
-            <%= link_to @auser.nickname, "/users/detail/#{@auser.id}" %>
+            <%= link_to"#{@auser.grade} #{@auser.expert} #{@auser.nickname}", "/users/detail/#{@auser.id}" %>
           </div>
           <div class = "postcontent">
           <%= answer.content %>

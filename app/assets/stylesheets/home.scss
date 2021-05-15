@@ -10,14 +10,60 @@
   padding-top: 140px;
   padding-left: 30px;
   padding-bottom: 100px;
+  text-align: center;
+
   h1 {
     padding-bottom: 50px;
     font-size: 70px;
   }
+
   h2 {
     color: red;
+    margin-bottom: 30px;
   }
-  text-align: center;
+  
+  .balloon2-left {
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0 1.5em 15px;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #FFF;
+    border: solid 3px #555;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  .balloon2-left:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -24px;
+    margin-top: -12px;
+    border: 12px solid transparent;
+    border-right: 12px solid #FFF;
+    z-index: 2;
+  }
+  
+  .balloon2-left:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    margin-top: -14px;
+    border: 14px solid transparent;
+    border-right: 14px solid #555;
+    z-index: 1;
+  }
+  
+  .balloon2-left h3 {
+    margin: 0;
+    padding: 10px;
+    color: blue;
+  }
 }
 
 .middle-wrapper {
@@ -157,6 +203,24 @@
     font-size: 18px;
   }
 
+  .box15 {
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    color: #565656;
+    background: #FFFFCC	;
+    box-shadow: 0px 0px 0px 10px #FFFFCC	;
+    border: dashed 2px black	;
+    border-radius: 8px;
+    margin-bottom: 80px;
+  }
+  .box15 p {
+    margin: 0; 
+    padding: 0;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
   .box16 {
     padding: 0.2em 0.5em;
     margin: 2em 0;
@@ -175,6 +239,10 @@
     padding-bottom: 10px;
   }
 
+  span {
+    color: red;
+  }
+
   .button-square-so-pop {
     position: relative;
     display: inline-block;
@@ -191,6 +259,26 @@
   }
   
   .button-square-so-pop:active {
+    /*押したとき*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+
+  .button-square-so-water {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    background: blue;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px blue;/*線色*/
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  
+  .button-square-so-water:active {
     /*押したとき*/
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
   }
@@ -237,7 +325,7 @@
     position: absolute;
     font-family: "Font Awesome 5 Free",'Quicksand','Avenir','Arial',sans-serif;
     font-weight: 900;
-    content: '\f00c こだわり';
+    content: '\f00c';
     background: #2196F3;
     color: #fff;
     left: 0px;
@@ -271,6 +359,10 @@
     margin-top: 15px;
     margin-bottom: 35px;
     font-size: 25px;
+  }
+
+  h4 {
+    padding-bottom: 20px;
   }
 
   a {
