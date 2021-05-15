@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   post 'posts/zyouhounew' => 'posts#zyouhoucreate'
 
   delete '/postdestroy/:id' => 'posts#destroy'
+  delete '/postanswerdestroy/:id' => 'answers#destroy'
 
   get 'mainposts/gakkouindex' => 'mainposts#gakkouindex'
   get 'mainposts/gakkounew' => 'mainposts#gakkounew'
@@ -83,6 +84,7 @@ Rails.application.routes.draw do
   post 'mainposts/sakurunew' => 'mainposts#sakurucreate'
 
   delete '/mainpostdestroy/:id' => 'mainposts#destroy'
+  delete '/mainpostanswerdestroy/:id' => 'mainanswers#destroy'
 
   get 'syuabout' => 'home#syuabout'
   get 'gakkouabout' => 'home#gakkouabout'

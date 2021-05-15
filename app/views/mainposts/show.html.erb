@@ -13,8 +13,6 @@
     <div class= "box22" >
 
       <div class = "postuser">
-        <%= @user.grade %>
-        <%= @user.expert %>
         <%= link_to "#{@user.grade} #{@user.expert} #{@user.nickname}", "/users/detail/#{@user.id}" %>
       </div>
 
@@ -53,8 +51,11 @@
             <%= link_to "#{@auser.grade} #{@auser.expert} #{@auser.nickname}", "/users/detail/#{@auser.id}" %>
           </div>
           <div class = "postcontent">
-          <%= mainanswer.content %>
+            <%= mainanswer.content %>
           </div>
+          <% if mainanswer.user_id == current_user.id %>
+            <%= link_to "回答を削除する", "/mainpostanswerdestroy/#{mainanswer.id}", method: :delete %>
+          <% end %>
         </div>
       <% end %>
     </div>

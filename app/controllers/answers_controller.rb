@@ -20,6 +20,13 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    @answer = Answer.find_by(id: params[:id])
+    @answer.destroy
+    redirect_to("/posts/#{@answer.auni_id}/#{@answer.post_id}")
+    flash[:success] = "回答を削除しました"
+  end
+
   private
 
     def answer_params

@@ -53,6 +53,9 @@
           <div class = "postcontent">
           <%= answer.content %>
           </div>
+          <% if answer.user_id == current_user.id %>
+            <%= link_to "回答を削除する", "/postanswerdestroy/#{answer.id}", method: :delete %>
+          <% end %>
         </div>
       <% end %>
     </div>

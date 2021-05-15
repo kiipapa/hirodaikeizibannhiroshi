@@ -20,6 +20,13 @@ class MainanswersController < ApplicationController
     end
   end
 
+  def destroy
+    @mainanswer = Mainanswer.find_by(id: params[:id])
+    @mainanswer.destroy
+    redirect_to("/mainposts/#{@mainanswer.acode_id}/#{@mainanswer.post_id}")
+    flash[:success] = "回答を削除しました"
+  end
+
   private
 
     def mainanswer_params
