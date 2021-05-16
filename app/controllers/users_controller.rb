@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, only: [:show, :edit, :update, :detail]
+  before_action :logged_in_user, only: [:show, :edit, :update, :detail, :follow, :unfollow, :follow_form, :unfollow_form, :delete_form, :destroy]
   before_action :correct_user,   only: [:edit, :update]
 
   def new
