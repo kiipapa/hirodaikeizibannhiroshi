@@ -3,6 +3,8 @@ class HomeController < ApplicationController
   before_action :logged_in_user, only: [:sogoabout, :bunabout, :kyouabout, :houabout, :keiabout, :riabout, :kouabout, :seibutuabout, :zyouhouabout, :unilist]
 
   def top
+    @posts = Post.all.order(created_at: :desc).first(2)
+    @mainposts = Mainpost.all.order(created_at: :desc).first(3)
   end
 
   def about

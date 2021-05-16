@@ -13,6 +13,23 @@
 
 <div class = "container">
 
+  <div class="rireki-wrapper">
+    <h1>こんな質問が出ています！！！！！</h1>
+
+    <% @posts.each do |post| %>
+      <div class="list-group-item">
+        <%= post.content %>
+      </div>
+    <% end %>
+
+    <% @mainposts.each do |mainpost| %>
+      <div class="list-group-item">
+        <%= mainpost.content %>
+      </div>
+    <% end %>
+
+  </div>
+
   <div class="middle-wrapper">
   
     <h1>THIS APP</h1>
