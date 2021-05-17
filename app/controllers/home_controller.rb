@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   def top
     @posts = Post.all.order(created_at: :desc).first(2)
     @mainposts = Mainpost.all.order(created_at: :desc).first(3)
+    @users = User.all
   end
 
   def about
