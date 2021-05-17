@@ -230,6 +230,98 @@ class PostsController < ApplicationController
     end
   end
 
+  def igakuindex
+    @searchconpo = Post.where(univ_id: 10)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
+  end
+
+  def igakunew
+    @post = Post.new
+  end
+
+  def igakucreate
+    @post = Post.new(post_params)
+    @post.univ_id  = 10
+    @post.user_id  = current_user.id
+    if @post.save
+      flash[:success] = "質問を投稿しました"
+      redirect_to("/posts/igakuindex")
+    else
+      flash.now[:danger] = "投稿に失敗しました"
+      render 'igakunew'
+    end
+  end
+
+  def kangoindex
+    @searchconpo = Post.where(univ_id: 11)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
+  end
+
+  def kangonew
+    @post = Post.new
+  end
+
+  def kangocreate
+    @post = Post.new(post_params)
+    @post.univ_id  = 11
+    @post.user_id  = current_user.id
+    if @post.save
+      flash[:success] = "質問を投稿しました"
+      redirect_to("/posts/kangoindex")
+    else
+      flash.now[:danger] = "投稿に失敗しました"
+      render 'kangonew'
+    end
+  end
+
+  def yakuindex
+    @searchconpo = Post.where(univ_id: 12)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
+  end
+
+  def yakunew
+    @post = Post.new
+  end
+
+  def yakucreate
+    @post = Post.new(post_params)
+    @post.univ_id  = 12
+    @post.user_id  = current_user.id
+    if @post.save
+      flash[:success] = "質問を投稿しました"
+      redirect_to("/posts/yakuindex")
+    else
+      flash.now[:danger] = "投稿に失敗しました"
+      render 'yakunew'
+    end
+  end
+
+  def siindex
+    @searchconpo = Post.where(univ_id: 13)
+    @search = @searchconpo.ransack(params[:q])
+    @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
+  end
+
+  def sinew
+    @post = Post.new
+  end
+
+  def sicreate
+    @post = Post.new(post_params)
+    @post.univ_id  = 13
+    @post.user_id  = current_user.id
+    if @post.save
+      flash[:success] = "質問を投稿しました"
+      redirect_to("/posts/siindex")
+    else
+      flash.now[:danger] = "投稿に失敗しました"
+      render 'sinew'
+    end
+  end
+
   def show
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)

@@ -1,0 +1,48 @@
+<div class="postindex">
+  <div class = "container">
+
+    <h1>歯学部に関する質問一覧</h1>
+
+    <div class="balloon1-left">
+      <p><span>投稿者のニックネーム</span>をクリックすると、その人のプロフィールを確認することができます。</p>
+      <p><span>質問内容</span>をクリックすると、具体的な質問と回答を確認することができます。</p>
+      <p>質問内容をクリックした先でその質問に対する回答をすることができます。</p>
+    </div>
+
+    <div class="keyword">
+
+      <div class="ribbon2"><h2>キーワード検索</h2></div>
+
+      
+
+      <%= search_form_for @search, url: "/posts/siindex" do |f| %>
+
+        <%= f.search_field :content_cont %>
+
+        <%= f.submit "検索" %>
+      <% end %>
+
+    </div>
+
+  
+    <% @posts.each do |post| %>
+      <div class= "box22" >
+
+        <div class = "postuser">
+          <% @user = User.find_by(id: post.user_id) %>
+          <%= link_to " #{@user.grade} #{@user.expert} #{@user.nickname}", "/users/detail/#{@user.id}" %>
+        </div>
+
+        <div class = "postcontent">
+          <%= link_to "#{post.content}", "/posts/#{post.univ_id}/#{post.id}" %>
+        </div>
+
+      </div>
+    <% end %>
+
+    <%= paginate @posts %>
+
+    <%= link_to "戻る", "/siabout", class: "button-square-so-pop" %>
+
+  </div>
+</div>

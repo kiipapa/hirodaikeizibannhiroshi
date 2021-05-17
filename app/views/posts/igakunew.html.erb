@@ -1,0 +1,19 @@
+<div class="postindex">  
+  <div class = "container">
+    <h1>医学部医学科に関する新規投稿</h1>
+
+    <div class = "col-md-6 col-md-offset-3" >
+      <%= form_with(url: "/posts/igakunew", model: @post, local: true) do |f| %>
+
+        <%= f.label :質問内容（100字以内）, class: "form-label" %>
+        <%= f.text_area :content , size: "20x15", class: "form-control" %>
+
+        <%= f.submit "質問を投稿する" , class: "form-control postsub" %>
+      <% end %>
+    </div>
+
+    <div class = "col-md-6 col-md-offset-3">
+      <%= link_to "戻る", "/igakuabout", class: "button-square-so-pop" %>
+    </div>
+  </div>
+</div>

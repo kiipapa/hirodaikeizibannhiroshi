@@ -68,6 +68,22 @@ Rails.application.routes.draw do
   get 'posts/zyouhounew' => 'posts#zyouhounew'
   post 'posts/zyouhounew' => 'posts#zyouhoucreate'
 
+  get 'posts/igakuindex' => 'posts#igakuindex'
+  get 'posts/igakunew' => 'posts#igakunew'
+  post 'posts/igakunew' => 'posts#igakucreate'
+
+  get 'posts/kangoindex' => 'posts#kangoindex'
+  get 'posts/kangonew' => 'posts#kangonew'
+  post 'posts/kangonew' => 'posts#kangocreate'
+
+  get 'posts/yakuindex' => 'posts#yakuindex'
+  get 'posts/yakunew' => 'posts#yakunew'
+  post 'posts/yakunew' => 'posts#yakucreate'
+
+  get 'posts/siindex' => 'posts#siindex'
+  get 'posts/sinew' => 'posts#sinew'
+  post 'posts/sinew' => 'posts#sicreate'
+  
   delete '/postdestroy/:id' => 'posts#destroy'
   delete '/postanswerdestroy/:id' => 'answers#destroy'
 
@@ -102,6 +118,10 @@ Rails.application.routes.draw do
   get 'kouabout' => 'home#kouabout'
   get 'seibutuabout' => 'home#seibutuabout'
   get 'zyouhouabout' => 'home#zyouhouabout'
+  get 'igakuabout' => 'home#igakuabout'
+  get 'kangoabout' => 'home#kangoabout'
+  get 'yakuabout' => 'home#yakuabout'
+  get 'siabout' => 'home#siabout'
 
   get 'R9r8p7P6!' => 'users#secret'
 

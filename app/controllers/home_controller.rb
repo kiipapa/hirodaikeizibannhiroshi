@@ -54,5 +54,17 @@ class HomeController < ApplicationController
 
   def zyouhouabout
   end
+
+  def igakuabout
+  end
+
+  def kangoabout
+  end
+
+  def yakuabout
+  end
+
+  def siabout
+  end
   
 end

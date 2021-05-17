@@ -308,6 +308,26 @@
     width: 30%;
   }
 
+  h3 {
+    position: relative;
+    padding: 0.5em;
+    background: #a6d3c8;
+    color: white;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    font-size: 35px;
+  }
+  
+  h3::before {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-right: solid 20px rgb(149, 158, 155);
+  }
+
   p {
     position: relative;
     color: black;
@@ -410,5 +430,26 @@
   .list-group-item {
     font-size: 22px;
     color: red;
+  }
+}
+
+.koukoku {
+  h1 {
+    position: relative;
+    padding: 0.2em 0.5em;
+    background: -webkit-linear-gradient(to right, rgb(255, 124, 111), #ffc994);
+    background: linear-gradient(to right, rgb(255, 124, 111), #ffc994);
+    color: white;
+    font-weight: lighter;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.56);
+  }
+
+  p {
+    font-size: 35px;
+  }
+
+  span {
+    color: red;
+    font-weight: bold;
   }
 }
