@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_021042) do
+ActiveRecord::Schema.define(version: 2021_05_18_013745) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_021042) do
     t.string "expert"
     t.string "grade"
     t.string "remember_digest"
+    t.boolean "admin", default: false
   end
 
 end

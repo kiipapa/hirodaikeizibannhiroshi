@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, only: [:show, :edit, :update, :detail, :follow, :unfollow, :follow_form, :unfollow_form, :delete_form, :destroy]
+  before_action :logged_in_user, only: [:show, :edit, :update, :detail, :follow, :unfollow, :follow_form, :unfollow_form, :delete_form, :destroy, :secret]
   before_action :correct_user,   only: [:edit, :update]
 
   def new
@@ -10,8 +10,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "新規登録が完了しました。ログインをしてください。"
-      redirect_to("/")
+      log_in @user
+      flash[:success] = "新規登録が完了しました。ログインしました。"
+      redirect_to ("/logintop")
     else
       render 'new'
     end
