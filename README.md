@@ -1,24 +1,49 @@
-# README
+2021年5月16日リリース！！
+現在24名の広大生が登録しています。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# このアプリについて
 
-Things you may want to cover:
+コロナ禍の今、広島大学生で情報共有を手助けするアプリを開発しました。
 
-* Ruby version
+バイトや就活、部活・サークルの情報共有ができ、また、学部ごとの情報共有ができます。
+コロナ禍で大学生の情報共有が希薄な中で、このようなアプリがあると手助けになるのではないかと考えて作成しました。
+ 
+アプリの内容は、利用者が質問して、誰かが回答をしていくというものです。
 
-* System dependencies
+# このアプリの営業方法
 
-* Configuration
+友達に学年ラインとかで共有してもらいました。
+また、ツイッターをリツイートしてもらったり、直接広島大学の公式団体にリツイートしてもらいました。
 
-* Database creation
+# 現時点での進捗
 
-* Database initialization
+24人。。。
+まだリリースをして間もないこともあるのですが、広島大学生少なくとも500人以上に宣伝して、たったの24人。。
+明らかに失敗していると考えるのが妥当な営業成績です。
 
-* How to run the test suite
+友達からは少し胡散臭いと言われたり、チェーンメールと勘違いされたりとなかなか広まらない状況です。
 
-* Services (job queues, cache servers, search engines, etc.)
+# 使用技術
 
-* Deployment instructions
+Ruby
+Ruby on rails 
+html
+css
+bootstrap
 
-* ...
+インフラ
+
+heroku
+
+# 実装機能
+
+新規登録、ログイン(session, cookie)
+投稿機能、投稿に対する応答機能
+いいね機能
+フォロー機能
+管理者画面の実装
+グーグルアナリティクスの導入
+SEO対策
+テストコード
+
+

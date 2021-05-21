@@ -241,3 +241,33 @@
   }
 }
 
+.secret {
+  * {
+    list-style: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .ac {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .ac-parent {
+    height: 50px;
+    border-bottom: 1px solid #fff;
+    background-color: #CCFFCC	;
+    color: gray;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+  
+  .ac-child {
+    display: none;
+    padding: 2em 1em;
+    background-color: white;
+  }
+}
+

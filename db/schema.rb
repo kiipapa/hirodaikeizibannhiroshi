@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_013745) do
+ActiveRecord::Schema.define(version: 2021_05_21_035746) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2021_05_18_013745) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "auni_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "likes", force: :cascade do |t|
@@ -64,6 +71,12 @@ ActiveRecord::Schema.define(version: 2021_05_18_013745) do
   create_table "relationships", force: :cascade do |t|
     t.integer "followed_id"
     t.integer "follower_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "secures", force: :cascade do |t|
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

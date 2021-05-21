@@ -12,6 +12,32 @@ class HomeController < ApplicationController
   end
 
   def logintop
+    @contact = Contact.new
+    @secure = Secure.new
+  end
+
+  def contact
+    @contact = Contact.new(contact_params)
+    @contact.user_id = current_user.id
+    if @contact.save
+      flash[:success] = "送信に成功しました"
+      redirect_to ('/logintop')
+    else
+      flash[:danger] = "送信に失敗しました。"
+      render 'logintop'
+    end
+  end
+
+  def secure
+    @secure = Secure.new(secure_params)
+    @secure.save
+    if @secure.password == "R9r8p7P6!"
+      flash[:success] = "管理者画面に入りました"
+      redirect_to ("/pwz248iJiuyH6")
+    else
+      flash[:danger] = "管理者画面に入れません"
+      render 'logintop'
+    end
   end
 
   def mokulist
@@ -67,5 +93,15 @@ class HomeController < ApplicationController
 
   def siabout
   end
+
+  private
+
+    def contact_params
+      params.require(:contact).permit(:content)
+    end
+
+    def secure_params
+      params.require(:secure).permit(:password)
+    end
   
 end

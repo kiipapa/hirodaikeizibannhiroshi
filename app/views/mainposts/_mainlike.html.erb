@@ -1,0 +1,9 @@
+<% if Mainlike.find_by(user_id: current_user.id, post_id: @mainpost.id) %>
+  <%= link_to("/mainlike/#{@mainpost.id}/destroy", method: :delete, remote: true ) do %>
+    <span class= "far fa-heart" ></span>
+  <% end %>
+<% else %>
+  <%= link_to("/mainlike/#{@mainpost.id}", method: :post, remote: true ) do %>
+    <span class= "fas fa-heart" ></span>
+  <% end %>
+<% end %>

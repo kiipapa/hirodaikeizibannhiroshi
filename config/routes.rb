@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  post 'mainlike/:id' => 'mainposts#mainlike'
+  post 'mainlike/:id' => 'mainposts#mainlikecreate'
   delete 'mainlike/:id/destroy' => 'mainposts#mainlikedestroy'
-  post 'like/:id' => 'posts#like'
+  post 'like/:id' => 'posts#likecreate'
   delete 'like/:id/destroy' => 'posts#likedestroy'
 
   get 'posts/:univ_id/:id' => 'posts#show'
@@ -123,7 +123,12 @@ Rails.application.routes.draw do
   get 'yakuabout' => 'home#yakuabout'
   get 'siabout' => 'home#siabout'
 
-  get 'R9r8p7P6!' => 'users#secret'
+  post 'contact' => 'home#contact'
+
+  get 'pwz248iJiuyH6' => 'users#secret'
+  post 'secure' => 'home#secure'
+  delete 'securepostdestroy/:id' => 'posts#securedestroy'
+  delete 'securemainpostdestroy/:id' => 'mainposts#securedestroy'
 
   get 'users/new' => 'users#new'
   post 'users/new' => 'users#create'

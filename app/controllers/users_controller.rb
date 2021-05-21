@@ -42,6 +42,9 @@ class UsersController < ApplicationController
 
   def secret
     @users = User.all
+    @contacts = Contact.all
+    @posts = Post.all
+    @mainposts = Mainpost.all
   end
 
   def detail

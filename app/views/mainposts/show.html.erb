@@ -21,17 +21,9 @@
         <%= @mainpost.content %>
       </div>
 
-      <div class = "like">
-        <% if Mainlike.find_by(user_id: current_user.id, post_id: @mainpost.id) %>
-          <%= link_to("/mainlike/#{@post.id}/destroy", method: :delete) do %>
-            <span class= "fa fa-heart like-btn-unlike" ></span>
-          <% end %>
-        <% else %>
-          <%= link_to("/mainlike/#{@mainpost.id}", method: :post) do %>
-            <span class= "fa fa-heart like-btn" ></span>
-          <% end %>
-        <% end %>
-        <%= @like.count %>
+
+      <div id = "likes_buttons_<%= @mainpost.id %>", class = "like">
+        <%= render 'mainposts/mainlike' %>
       </div>
     </div>
 

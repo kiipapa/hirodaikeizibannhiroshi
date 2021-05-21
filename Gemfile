@@ -8,14 +8,17 @@ gem 'ransack'
 gem 'bcrypt',         '3.1.13'
 gem 'kaminari'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'jquery-rails'
 gem 'puma',       '4.3.6'
 gem 'sass-rails', '5.1.0'
 gem 'webpacker',  '4.0.7'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
+gem 'meta-tags', :require => 'meta_tags'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.6'
   gem 'sqlite3', '1.4.1'
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -32,8 +35,6 @@ group :test do
   gem 'selenium-webdriver',       '3.142.4'
   gem 'webdrivers',               '4.1.2'
   gem 'rails-controller-testing', '1.0.4'
-  gem 'guard',                    '2.16.2'
-  gem 'guard-minitest',           '2.4.6'
 end
 
 group :production do

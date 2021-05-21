@@ -3,24 +3,18 @@ class PostsController < ApplicationController
   before_action :logged_in_user
 
 
-  def like
+  def likecreate
     @post = Post.find_by(id: params[:id])
     @like = Like.new
     @like.user_id = current_user.id
     @like.post_id = params[:id].to_i
-    if @like.save
-      flash[:success] = "いいねしました"
-      redirect_to ("/posts/#{@post.univ_id}/#{@post.id}")
-    end
+    @like.save
   end
 
   def likedestroy
     @post = Post.find_by(id: params[:id])
     @like = Like.find_by(user_id: current_user.id, post_id: @post.id)
-    if @like.destroy
-      flash[:success] = "いいねを取り消しました"
-      redirect_to ("/posts/#{@post.univ_id}/#{@post.id}")
-    end
+    @like.destroy
   end
 
   def sogoindex
@@ -338,6 +332,13 @@ class PostsController < ApplicationController
     @likes.destroy_all
     flash[:success] = "投稿を削除しました"
     redirect_to("/users/#{@post.user_id}")
+  end
+
+  def securedestroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    flash[:success] = "倫理性のない投稿を排除しました。"
+    redirect_to("/secret")
   end
 
   private
