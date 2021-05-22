@@ -114,7 +114,7 @@ class MainpostsController < ApplicationController
   private
 
     def mainpost_params
-      params.require(:mainpost).permit(:content)
+      params.require(:mainpost).permit(:content, :img)
     end
 
 end

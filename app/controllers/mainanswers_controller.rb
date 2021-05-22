@@ -30,6 +30,6 @@ class MainanswersController < ApplicationController
   private
 
     def mainanswer_params
-      params.require(:mainanswer).permit(:content)
+      params.require(:mainanswer).permit(:content, :img)
     end
 end

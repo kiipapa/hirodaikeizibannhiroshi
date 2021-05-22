@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: ニックネーム
+        expert: 学部
+        grade: 学年
+        password: パスワード
+        password_confirmation: パスワード（確認）

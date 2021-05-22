@@ -21,9 +21,14 @@
         <%= @post.content %>
       </div>
 
+      <div class = "postimg">
+      <%= image_tag @post.img.url if @post.img? %>
+      </div>
+
       <div id = "likes_buttons_<%= @post.id %>" class = "like">
         <%= render 'posts/like' %>
       </div>
+      <%= @like.count %>
     </div>
 
     <div class="updesbut">
@@ -44,6 +49,9 @@
           </div>
           <div class = "postcontent">
           <%= answer.content %>
+          </div>
+          <div class = "postimg">
+            <%= image_tag answer.img.url if answer.img? %>
           </div>
           <% if answer.user_id == current_user.id %>
             <%= link_to "回答を削除する", "/postanswerdestroy/#{answer.id}", method: :delete %>
