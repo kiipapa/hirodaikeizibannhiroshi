@@ -30,9 +30,7 @@ Ruby on rails
 javascript  
 html  
 css  
-bootstrap
-
-インフラ
+bootstrap  
 heroku
 
 # 実装機能
@@ -41,6 +39,7 @@ heroku
 ログイン(session, cookie)  
 投稿機能、投稿に対する応答機能（画像投稿付き）  
 いいね機能（Ajax）、フォロー機能  
+I18nによるエラーメッセージ日本語化   
 管理者画面の実装  
 グーグルアナリティクスの導入  
 SEO対策  
