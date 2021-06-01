@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update, :detail, :follow, :unfollow, :follow_form, :unfollow_form, :delete_form, :destroy, :secret]
   before_action :correct_user,   only: [:edit, :update]
 
+  # 新規登録画面
+
   def new
     @user = User.new
   end
@@ -18,12 +20,16 @@ class UsersController < ApplicationController
     end
   end
 
+  # マイページ
+
   def show
     @followed = Relationship.where(follower_id: current_user.id)
     @follower = Relationship.where(followed_id: current_user.id)
     @posts = Post.where(user_id: current_user.id)
     @mainposts = Mainpost.where(user_id: current_user.id)
   end
+
+  # マイページの編集
 
   def edit
     @user = User.find_by(id: params[:id])
@@ -40,6 +46,16 @@ class UsersController < ApplicationController
     end
   end
 
+  # ユーザーの詳しい情報
+
+  def detail
+    @user = User.find_by(id: params[:id])
+    @followed = Relationship.where(follower_id: @user.id)
+    @follower = Relationship.where(followed_id: @user.id)
+  end
+
+  # 管理者画面
+
   def secret
     @users = User.all
     @contacts = Contact.all
@@ -47,11 +63,7 @@ class UsersController < ApplicationController
     @mainposts = Mainpost.all
   end
 
-  def detail
-    @user = User.find_by(id: params[:id])
-    @followed = Relationship.where(follower_id: @user.id)
-    @follower = Relationship.where(followed_id: @user.id)
-  end
+  # フォロー、フォロワー機能
 
   def follow
     @follow = Relationship.new
@@ -80,6 +92,8 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @follows = Relationship.where(followed_id: @user.id)
   end
+
+  # アカウント削除
 
   
   def delete_form

@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
 
   before_action :logged_in_user, only: [:destroy]
 
+  # ログイン
+
   def new
   end
 
@@ -16,6 +18,8 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
+
+  # ログアウト
 
   def destroy
     log_out if logged_in?

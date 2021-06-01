@@ -2,20 +2,9 @@ class MainpostsController < ApplicationController
 
   before_action :logged_in_user
 
+  
 
-  def mainlikecreate
-    @mainpost = Mainpost.find_by(id: params[:id])
-    @like = Mainlike.new
-    @like.user_id = current_user.id
-    @like.post_id = params[:id].to_i
-    @like.save
-  end
-
-  def mainlikedestroy
-    @mainpost = Mainpost.find_by(id: params[:id])
-    @like = Mainlike.find_by(user_id: current_user.id, post_id: @mainpost.id)
-    @like.destroy
-  end
+  # 学校生活に関する投稿
 
   def gakkouindex
     @searchconpo = Mainpost.where(code_id: 1)
@@ -40,6 +29,8 @@ class MainpostsController < ApplicationController
     end
   end
 
+  # 部活・サークルに関する投稿
+
   def sakuruindex
     @searchconpo = Mainpost.where(code_id: 2)
     @search = @searchconpo.ransack(params[:q])
@@ -62,6 +53,8 @@ class MainpostsController < ApplicationController
       render 'sakurunew'
     end
   end
+
+  # 就職活動に関する投稿
 
   def syuindex
     @searchconpo = Mainpost.where(code_id: 3)
@@ -86,12 +79,32 @@ class MainpostsController < ApplicationController
     end
   end
 
+  # 投稿詳細ページの実装
+
   def show
     @mainpost = Mainpost.find_by(id: params[:id])
     @user = User.find_by(id: @mainpost.user_id)
     @mainanswers = Mainanswer.where(post_id: @mainpost.id)
     @like = Mainlike.where(post_id: @mainpost.id)
   end
+
+  # いいね機能
+
+  def mainlikecreate
+    @mainpost = Mainpost.find_by(id: params[:id])
+    @like = Mainlike.new
+    @like.user_id = current_user.id
+    @like.post_id = params[:id].to_i
+    @like.save
+  end
+
+  def mainlikedestroy
+    @mainpost = Mainpost.find_by(id: params[:id])
+    @like = Mainlike.find_by(user_id: current_user.id, post_id: @mainpost.id)
+    @like.destroy
+  end
+
+  # 質問の削除
   
   def destroy
     @mainpost = Mainpost.find_by(id: params[:id])
@@ -103,6 +116,8 @@ class MainpostsController < ApplicationController
     flash[:success] = "投稿を削除しました"
     redirect_to("/users/#{@mainpost.user_id}")
   end
+
+  # 管理者画面から意味のない投稿を削除
 
   def securedestroy
     @mainpost = Mainpost.find_by(id: params[:id])

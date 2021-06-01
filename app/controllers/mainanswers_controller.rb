@@ -2,6 +2,8 @@ class MainanswersController < ApplicationController
 
   before_action :logged_in_user
 
+  #　学校生活別の回答機能に関する実装
+
   def new
     @mainanswer = Mainanswer.new(user_id: current_user.id, post_id: params[:post_id], acode_id: params[:acode_id])
   end

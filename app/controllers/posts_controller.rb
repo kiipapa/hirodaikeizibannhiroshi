@@ -1,21 +1,9 @@
 class PostsController < ApplicationController
 
   before_action :logged_in_user
+  
 
-
-  def likecreate
-    @post = Post.find_by(id: params[:id])
-    @like = Like.new
-    @like.user_id = current_user.id
-    @like.post_id = params[:id].to_i
-    @like.save
-  end
-
-  def likedestroy
-    @post = Post.find_by(id: params[:id])
-    @like = Like.find_by(user_id: current_user.id, post_id: @post.id)
-    @like.destroy
-  end
+  # 総合科学部に関する投稿
 
   def sogoindex
     @searchconpo = Post.where(univ_id: 1)
@@ -40,6 +28,8 @@ class PostsController < ApplicationController
     end
   end
 
+  #　文学部に関する投稿
+
   def bunindex
     @searchconpo = Post.where(univ_id: 2)
     @search = @searchconpo.ransack(params[:q])
@@ -62,6 +52,8 @@ class PostsController < ApplicationController
       render 'bunnew'
     end
   end
+
+  # 教育学部に関する投稿
 
   def kyouindex
     @searchconpo = Post.where(univ_id: 3)
@@ -86,6 +78,8 @@ class PostsController < ApplicationController
     end
   end
 
+   # 法学部に関する投稿
+
   def houindex
     @searchconpo = Post.where(univ_id: 4)
     @search = @searchconpo.ransack(params[:q])
@@ -108,6 +102,8 @@ class PostsController < ApplicationController
       render 'hounew'
     end
   end
+
+   # 経済学部に関する投稿
 
   def keiindex
     @searchconpo = Post.where(univ_id: 5)
@@ -132,6 +128,8 @@ class PostsController < ApplicationController
     end
   end
 
+   # 理学部に関する投稿
+
   def riindex
     @searchconpo = Post.where(univ_id: 6)
     @search = @searchconpo.ransack(params[:q])
@@ -154,6 +152,8 @@ class PostsController < ApplicationController
       render 'rinew'
     end
   end
+
+   # 法学部に関する投稿
 
   def kouindex
     @searchconpo = Post.where(univ_id: 7)
@@ -178,6 +178,8 @@ class PostsController < ApplicationController
     end
   end
 
+   # 生物生産学部に関する投稿
+
   def seibutuindex
     @searchconpo = Post.where(univ_id: 8)
     @search = @searchconpo.ransack(params[:q])
@@ -200,6 +202,8 @@ class PostsController < ApplicationController
       render 'seibutunew'
     end
   end
+
+   # 情報科学部に関する投稿
 
   def zyouhouindex
     @searchconpo = Post.where(univ_id: 9)
@@ -224,6 +228,8 @@ class PostsController < ApplicationController
     end
   end
 
+   # 医学部に関する投稿
+
   def igakuindex
     @searchconpo = Post.where(univ_id: 10)
     @search = @searchconpo.ransack(params[:q])
@@ -246,6 +252,8 @@ class PostsController < ApplicationController
       render 'igakunew'
     end
   end
+
+   # 看護学部に関する投稿
 
   def kangoindex
     @searchconpo = Post.where(univ_id: 11)
@@ -270,6 +278,8 @@ class PostsController < ApplicationController
     end
   end
 
+   # 薬学部に関する投稿
+
   def yakuindex
     @searchconpo = Post.where(univ_id: 12)
     @search = @searchconpo.ransack(params[:q])
@@ -292,6 +302,8 @@ class PostsController < ApplicationController
       render 'yakunew'
     end
   end
+
+   # 歯学部に関する投稿
 
   def siindex
     @searchconpo = Post.where(univ_id: 13)
@@ -316,12 +328,32 @@ class PostsController < ApplicationController
     end
   end
 
+   # 投稿詳細ページの実装
+
   def show
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)
     @answers = Answer.where(post_id: @post.id)
     @like = Like.where(post_id: @post.id)
   end
+
+   # いいね機能の実装
+
+   def likecreate
+    @post = Post.find_by(id: params[:id])
+    @like = Like.new
+    @like.user_id = current_user.id
+    @like.post_id = params[:id].to_i
+    @like.save
+  end
+
+  def likedestroy
+    @post = Post.find_by(id: params[:id])
+    @like = Like.find_by(user_id: current_user.id, post_id: @post.id)
+    @like.destroy
+  end
+
+   # 質問削除
 
   def destroy
     @post = Post.find_by(id: params[:id])
@@ -333,6 +365,8 @@ class PostsController < ApplicationController
     flash[:success] = "投稿を削除しました"
     redirect_to("/users/#{@post.user_id}")
   end
+
+   # 管理者画面から投稿を削除する
 
   def securedestroy
     @post = Post.find_by(id: params[:id])

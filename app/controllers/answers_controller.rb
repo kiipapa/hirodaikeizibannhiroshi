@@ -2,6 +2,8 @@ class AnswersController < ApplicationController
 
   before_action :logged_in_user
 
+  #　学部別の回答機能に関する実装
+
   def new
     @answer = Answer.new(user_id: current_user.id, post_id: params[:post_id], auni_id: params[:auni_id])
   end

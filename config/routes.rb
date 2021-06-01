@@ -1,28 +1,54 @@
 Rails.application.routes.draw do
 
-  post 'relationships/:id' => 'users#follow'
-  delete 'relationships/:id/destroy' => 'users#unfollow'
-  get 'relationships/:id/follow' => 'users#follow_form'
-  get 'relationships/:id/follower' => 'users#follower_form'
-
+  # トップページ群に関するルーティング
   
-  get 'mainanswers/:user_id/:post_id/:acode_id' => 'mainanswers#new'
-  post 'mainanswers/:user_id/:post_id/:acode_id' => 'mainanswers#create'
-  get 'answers/:user_id/:post_id/:auni_id' => 'answers#new'
-  post 'answers/:user_id/:post_id/:auni_id' => 'answers#create'
+  get '/' => 'home#top'
+  get '/about' => 'home#about'
+  get 'logintop' => 'home#logintop'
 
+  get 'mokulist' => 'home#mokulist'
+  get 'unilist' => 'home#unilist'
+
+  get 'sogoabout' => 'home#sogoabout'
+  get 'bunabout' => 'home#bunabout'
+  get 'kyouabout' => 'home#kyouabout'
+  get 'houabout' => 'home#houabout'
+  get 'keiabout' => 'home#keiabout'
+  get 'riabout' => 'home#riabout'
+  get 'kouabout' => 'home#kouabout'
+  get 'seibutuabout' => 'home#seibutuabout'
+  get 'zyouhouabout' => 'home#zyouhouabout'
+  get 'igakuabout' => 'home#igakuabout'
+  get 'kangoabout' => 'home#kangoabout'
+  get 'yakuabout' => 'home#yakuabout'
+  get 'siabout' => 'home#siabout'
+  
+  get 'syuabout' => 'home#syuabout'
+  get 'gakkouabout' => 'home#gakkouabout'
+  get 'sakuruabout' => 'home#sakuruabout'
+
+  # お問い合わせに関するルーティング
+
+  post 'contact' => 'home#contact'
+
+  # ユーザーに関するルーティング
+
+  get 'users/new' => 'users#new'
+  post 'users/new' => 'users#create'
+  get 'users/:id' => 'users#show'
+  get 'users/detail/:id' => 'users#detail'
+  get 'users/:id/edit' => 'users#edit'
+  patch 'users/:id/update' => 'users#update'
+  get 'delete_form' => 'users#delete_form'
+  delete 'delete' => 'users#destroy'
+
+  # ログイン・ログアウトに関するルーティング
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  post 'mainlike/:id' => 'mainposts#mainlikecreate'
-  delete 'mainlike/:id/destroy' => 'mainposts#mainlikedestroy'
-  post 'like/:id' => 'posts#likecreate'
-  delete 'like/:id/destroy' => 'posts#likedestroy'
-
-  get 'posts/:univ_id/:id' => 'posts#show'
-  get 'mainposts/:code_id/:id' => 'mainposts#show'
+  # 各学部の投稿機能に関するルーティング
 
   get 'posts/sogoindex' => 'posts#sogoindex'
   get 'posts/sogonew' => 'posts#sogonew'
@@ -83,9 +109,8 @@ Rails.application.routes.draw do
   get 'posts/siindex' => 'posts#siindex'
   get 'posts/sinew' => 'posts#sinew'
   post 'posts/sinew' => 'posts#sicreate'
-  
-  delete '/postdestroy/:id' => 'posts#destroy'
-  delete '/postanswerdestroy/:id' => 'answers#destroy'
+
+  # 学校生活に関する投稿に関するルーティング
 
   get 'mainposts/gakkouindex' => 'mainposts#gakkouindex'
   get 'mainposts/gakkounew' => 'mainposts#gakkounew'
@@ -99,47 +124,46 @@ Rails.application.routes.draw do
   get 'mainposts/sakurunew' => 'mainposts#sakurunew'
   post 'mainposts/sakurunew' => 'mainposts#sakurucreate'
 
+  # 投稿詳細画面に関するルーティング
+
+  get 'posts/:univ_id/:id' => 'posts#show'
+  get 'mainposts/:code_id/:id' => 'mainposts#show'
+
+  # 回答機能に関するルーティング
+
+  get 'mainanswers/:user_id/:post_id/:acode_id' => 'mainanswers#new'
+  post 'mainanswers/:user_id/:post_id/:acode_id' => 'mainanswers#create'
+  get 'answers/:user_id/:post_id/:auni_id' => 'answers#new'
+  post 'answers/:user_id/:post_id/:auni_id' => 'answers#create'
+
+  # 質問削除・回答削除に関するルーティング
+  
+  delete '/postdestroy/:id' => 'posts#destroy'
+  delete '/postanswerdestroy/:id' => 'answers#destroy'
   delete '/mainpostdestroy/:id' => 'mainposts#destroy'
   delete '/mainpostanswerdestroy/:id' => 'mainanswers#destroy'
 
-  get 'syuabout' => 'home#syuabout'
-  get 'gakkouabout' => 'home#gakkouabout'
-  get 'sakuruabout' => 'home#sakuruabout'
-  
-  get 'logintop' => 'home#logintop'
-  get 'mokulist' => 'home#mokulist'
-  get 'unilist' => 'home#unilist'
-  get 'sogoabout' => 'home#sogoabout'
-  get 'bunabout' => 'home#bunabout'
-  get 'kyouabout' => 'home#kyouabout'
-  get 'houabout' => 'home#houabout'
-  get 'keiabout' => 'home#keiabout'
-  get 'riabout' => 'home#riabout'
-  get 'kouabout' => 'home#kouabout'
-  get 'seibutuabout' => 'home#seibutuabout'
-  get 'zyouhouabout' => 'home#zyouhouabout'
-  get 'igakuabout' => 'home#igakuabout'
-  get 'kangoabout' => 'home#kangoabout'
-  get 'yakuabout' => 'home#yakuabout'
-  get 'siabout' => 'home#siabout'
+  # フォローに関するルーティング
 
-  post 'contact' => 'home#contact'
+  post 'relationships/:id' => 'users#follow'
+  delete 'relationships/:id/destroy' => 'users#unfollow'
+  get 'relationships/:id/follow' => 'users#follow_form'
+  get 'relationships/:id/follower' => 'users#follower_form'
+
+  # いいね機能に関するルーティング
+
+  post 'mainlike/:id' => 'mainposts#mainlikecreate'
+  delete 'mainlike/:id/destroy' => 'mainposts#mainlikedestroy'
+  post 'like/:id' => 'posts#likecreate'
+  delete 'like/:id/destroy' => 'posts#likedestroy'
+  
+
+  # 管理者画面に関するルーティング
 
   get 'pwz248iJiuyH6' => 'users#secret'
   post 'secure' => 'home#secure'
   delete 'securepostdestroy/:id' => 'posts#securedestroy'
   delete 'securemainpostdestroy/:id' => 'mainposts#securedestroy'
 
-  get 'users/new' => 'users#new'
-  post 'users/new' => 'users#create'
-  get 'users/:id' => 'users#show'
-  get 'users/detail/:id' => 'users#detail'
-  get 'users/:id/edit' => 'users#edit'
-  patch 'users/:id/update' => 'users#update'
-  get 'delete_form' => 'users#delete_form'
-  delete 'delete' => 'users#destroy'
-
-  get '/about' => 'home#about'
-  get '/' => 'home#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
